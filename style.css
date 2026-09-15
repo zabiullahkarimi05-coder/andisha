@@ -454,3 +454,70 @@ body.dark-mode #darkModeButton {
     }
 
 }
+/* =========================
+   DARK MODE - INFO PAGES
+========================= */
+
+body.dark-mode .info-page {
+    background: #1b1b1b;
+    border-color: #333;
+}
+
+body.dark-mode .info-page h1,
+body.dark-mode .info-page h2 {
+    color: #eee;
+}
+
+body.dark-mode .info-page p {
+    color: #ccc;
+}
+
+body.dark-mode .contact-box {
+    background: #222;
+    border-color: var(--gold);
+}
+
+body.dark-mode .contact-box h2 {
+    color: #eee;
+}
+
+body.dark-mode .back {
+    color: #eee;
+}
+
+
+/* =========================
+   ARTICLE PAGE
+========================= */
+
+body.dark-mode .article-page {
+    border-color: #333;
+}
+
+body.dark-mode .article-page .back {
+    color: #eee;
+}
+
+
+/* =========================
+   FOOTER LINKS
+========================= */
+
+.footer-links a:hover {
+    color: var(--gold);
+}
+
+
+/* =========================
+   LANGUAGE BUTTON
+========================= */
+
+.language {
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.language:hover {
+    border-color: var(--gold);
+    color: var(--gold);
+}

@@ -3,484 +3,1080 @@
 
 <head>
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>اندیشه | مجله‌ای برای فکر کردن</title>
 
     <meta name="description"
-        content="مجله اندیشه؛ مجله‌ای اسلامی و فکری درباره فلسفه، اسلام، علم، تاریخ، ادبیات، روان‌شناسی و ارزش‌های انسانی.">
+        content="اندیشه؛ مجله‌ای اسلامی، علمی و فرهنگی برای اندیشیدن درباره انسان، جامعه، علم، تاریخ، فلسفه و تمدن.">
+
     <meta name="keywords"
-        content="اندیشه, مجله اندیشه, اسلام, فلسفه, علم, تاریخ, ادبیات, روانشناسی, افغانستان, فرهنگ">
-    <meta name="author" content="ANDISHA Magazine">
-    <meta name="theme-color" content="#0f172a">
+        content="اندیشه, مجله, اسلام, فلسفه, علم, فرهنگ, تاریخ, تمدن, افغانستان, جامعه">
 
     <meta property="og:title" content="اندیشه | مجله‌ای برای فکر کردن">
-    <meta property="og:description"
-        content="مجله‌ای برای اندیشیدن، آموختن و بهتر فهمیدن جهان و انسان.">
+    <meta property="og:description" content="مجله‌ای برای فکر کردن، آموختن و بهتر دیدن جهان.">
     <meta property="og:type" content="website">
 
+    <!-- Persian / Arabic typography -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap"
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Naskh+Arabic:wght@400;500;600;700&family=Vazirmatn:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
 
     <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="article-style.css">
+
+    <style>
+
+        /* =====================================================
+           ANDISHA PREMIUM HOMEPAGE
+           ===================================================== */
+
+        :root {
+            --premium-green: #0b3d32;
+            --premium-green-2: #145746;
+            --premium-gold: #c7a45b;
+            --premium-cream: #f6f1e7;
+            --premium-paper: #fffdf8;
+            --premium-dark: #071d18;
+            --premium-text: #17221f;
+            --premium-muted: #68736e;
+            --premium-border: rgba(11, 61, 50, .12);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            background: var(--premium-paper);
+            color: var(--premium-text);
+            font-family: "Vazirmatn", sans-serif;
+        }
+
+        body.dark-mode {
+            background: #071b17;
+            color: #edf4f0;
+        }
+
+        a {
+            text-decoration: none;
+        }
+
+        /* ---------------- HEADER ---------------- */
+
+        .premium-header {
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+
+            background: rgba(255, 253, 248, .92);
+            backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid var(--premium-border);
+        }
+
+        body.dark-mode .premium-header {
+            background: rgba(7, 29, 24, .94);
+            border-color: rgba(255,255,255,.08);
+        }
+
+        .premium-header-inner {
+            width: min(1240px, 92%);
+            min-height: 82px;
+            margin: auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+        }
+
+        .premium-logo {
+            display: flex;
+            flex-direction: column;
+            line-height: 1;
+        }
+
+        .premium-logo-en {
+            font-family: "Inter", sans-serif;
+            font-size: 27px;
+            font-weight: 800;
+            letter-spacing: .18em;
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-logo-en {
+            color: #e6c979;
+        }
+
+        .premium-logo-fa {
+            margin-top: 8px;
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 14px;
+            color: var(--premium-muted);
+        }
+
+        .premium-nav {
+            display: flex;
+            align-items: center;
+            gap: 28px;
+        }
+
+        .premium-nav a {
+            color: var(--premium-text);
+            font-size: 14px;
+            font-weight: 600;
+            transition: .25s;
+        }
+
+        body.dark-mode .premium-nav a {
+            color: #e5eee9;
+        }
+
+        .premium-nav a:hover {
+            color: var(--premium-gold);
+        }
+
+        .premium-actions {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .premium-theme {
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--premium-border);
+            border-radius: 50%;
+
+            background: transparent;
+            cursor: pointer;
+
+            font-size: 18px;
+        }
+
+        .premium-mobile {
+            display: none;
+
+            width: 42px;
+            height: 42px;
+
+            border: 1px solid var(--premium-border);
+            border-radius: 10px;
+
+            background: transparent;
+            cursor: pointer;
+            font-size: 20px;
+        }
+
+        /* ---------------- HERO ---------------- */
+
+        .premium-hero {
+            position: relative;
+            overflow: hidden;
+
+            background:
+                radial-gradient(circle at 80% 20%, rgba(199,164,91,.16), transparent 28%),
+                radial-gradient(circle at 10% 80%, rgba(20,87,70,.12), transparent 30%),
+                var(--premium-cream);
+
+            border-bottom: 1px solid var(--premium-border);
+        }
+
+        body.dark-mode .premium-hero {
+            background:
+                radial-gradient(circle at 80% 20%, rgba(199,164,91,.13), transparent 28%),
+                #09251e;
+        }
+
+        .premium-hero-inner {
+            width: min(1240px, 92%);
+            min-height: 650px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.05fr .95fr;
+            align-items: center;
+            gap: 70px;
+
+            padding: 80px 0;
+        }
+
+        .premium-kicker {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+
+            color: var(--premium-gold);
+            font-size: 13px;
+            font-weight: 700;
+
+            margin-bottom: 20px;
+        }
+
+        .premium-kicker::before {
+            content: "";
+            width: 32px;
+            height: 1px;
+            background: var(--premium-gold);
+        }
+
+        .premium-hero h1 {
+            margin: 0;
+
+            max-width: 720px;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: clamp(48px, 6vw, 82px);
+            line-height: 1.15;
+            font-weight: 700;
+
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-hero h1 {
+            color: #f1f5f1;
+        }
+
+        .premium-hero h1 span {
+            color: var(--premium-gold);
+        }
+
+        .premium-hero-text {
+            max-width: 650px;
+
+            margin: 28px 0 34px;
+
+            font-family: "Vazirmatn", sans-serif;
+            font-size: 18px;
+            line-height: 2.2;
+
+            color: var(--premium-muted);
+        }
+
+        .premium-hero-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 13px;
+        }
+
+        .premium-btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+
+            min-height: 52px;
+            padding: 0 27px;
+
+            border-radius: 8px;
+
+            font-size: 14px;
+            font-weight: 700;
+
+            transition: .3s;
+        }
+
+        .premium-btn-primary {
+            background: var(--premium-green);
+            color: white;
+        }
+
+        .premium-btn-primary:hover {
+            background: var(--premium-green-2);
+            transform: translateY(-2px);
+        }
+
+        .premium-btn-outline {
+            border: 1px solid rgba(11,61,50,.25);
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-btn-outline {
+            border-color: rgba(255,255,255,.2);
+            color: white;
+        }
+
+        .premium-btn-outline:hover {
+            border-color: var(--premium-gold);
+        }
+
+        /* HERO IMAGE */
+
+        .premium-hero-visual {
+            position: relative;
+        }
+
+        .premium-hero-image {
+            position: relative;
+            overflow: hidden;
+
+            aspect-ratio: 4 / 5;
+
+            border-radius: 22px;
+
+            box-shadow:
+                0 35px 80px rgba(7,29,24,.18);
+        }
+
+        .premium-hero-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .premium-image-overlay {
+            position: absolute;
+            inset: 0;
+
+            background:
+                linear-gradient(
+                    to top,
+                    rgba(7,29,24,.72),
+                    transparent 55%
+                );
+        }
+
+        .premium-image-caption {
+            position: absolute;
+            right: 28px;
+            left: 28px;
+            bottom: 25px;
+
+            color: white;
+        }
+
+        .premium-image-caption small {
+            color: #e3c97f;
+            font-weight: 700;
+        }
+
+        .premium-image-caption h3 {
+            margin: 8px 0 0;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 25px;
+        }
+
+        .premium-ornament {
+            position: absolute;
+
+            width: 130px;
+            height: 130px;
+
+            left: -45px;
+            bottom: -35px;
+
+            border: 1px solid rgba(199,164,91,.65);
+            border-radius: 50%;
+
+            pointer-events: none;
+        }
+
+        .premium-ornament::after {
+            content: "";
+
+            position: absolute;
+            inset: 18px;
+
+            border: 1px solid rgba(199,164,91,.4);
+            border-radius: 50%;
+        }
+
+        /* ---------------- SECTION ---------------- */
+
+        .premium-section {
+            width: min(1240px, 92%);
+            margin: auto;
+            padding: 105px 0;
+        }
+
+        .premium-section-heading {
+            display: flex;
+            align-items: end;
+            justify-content: space-between;
+
+            gap: 30px;
+
+            margin-bottom: 42px;
+        }
+
+        .premium-section-label {
+            color: var(--premium-gold);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: .08em;
+        }
+
+        .premium-section-heading h2 {
+            margin: 8px 0 0;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 42px;
+            line-height: 1.3;
+
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-section-heading h2 {
+            color: white;
+        }
+
+        .premium-section-heading p {
+            max-width: 450px;
+
+            margin: 0;
+
+            color: var(--premium-muted);
+            line-height: 2;
+            font-size: 14px;
+        }
+
+        .premium-more {
+            color: var(--premium-green);
+            font-size: 14px;
+            font-weight: 700;
+
+            white-space: nowrap;
+        }
+
+        body.dark-mode .premium-more {
+            color: #e4c878;
+        }
+
+        /* ---------------- FEATURED ---------------- */
+
+        .premium-featured {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            overflow: hidden;
+
+            background: var(--premium-green);
+
+            border-radius: 20px;
+
+            box-shadow: 0 25px 70px rgba(7,29,24,.13);
+        }
+
+        .premium-featured-image {
+            min-height: 450px;
+        }
+
+        .premium-featured-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .premium-featured-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 60px;
+            color: white;
+        }
+
+        .premium-featured-content .label {
+            color: #e1c477;
+            font-size: 12px;
+            font-weight: 800;
+        }
+
+        .premium-featured-content h2 {
+            margin: 17px 0;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 42px;
+            line-height: 1.45;
+        }
+
+        .premium-featured-content p {
+            margin: 0 0 28px;
+
+            color: rgba(255,255,255,.76);
+            line-height: 2.15;
+        }
+
+        .premium-featured-content .premium-btn {
+            align-self: flex-start;
+            background: #d0ae63;
+            color: #102d25;
+        }
+
+        /* ---------------- ARTICLE GRID ---------------- */
+
+        .premium-articles {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 25px;
+        }
+
+        .premium-card {
+            overflow: hidden;
+
+            background: white;
+
+            border: 1px solid var(--premium-border);
+            border-radius: 16px;
+
+            transition: .3s;
+        }
+
+        body.dark-mode .premium-card {
+            background: #0c2922;
+            border-color: rgba(255,255,255,.08);
+        }
+
+        .premium-card:hover {
+            transform: translateY(-7px);
+            box-shadow: 0 20px 45px rgba(7,29,24,.12);
+        }
+
+        .premium-card-image {
+            position: relative;
+            aspect-ratio: 16 / 10;
+            overflow: hidden;
+        }
+
+        .premium-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+
+            transition: transform .5s;
+        }
+
+        .premium-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .premium-card-body {
+            padding: 24px;
+        }
+
+        .premium-card-category {
+            color: var(--premium-gold);
+            font-size: 11px;
+            font-weight: 800;
+        }
+
+        .premium-card h3 {
+            margin: 10px 0;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 25px;
+            line-height: 1.5;
+
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-card h3 {
+            color: white;
+        }
+
+        .premium-card p {
+            margin: 0;
+
+            color: var(--premium-muted);
+            line-height: 2;
+
+            font-size: 13px;
+        }
+
+        .premium-card-link {
+            display: inline-block;
+            margin-top: 18px;
+
+            color: var(--premium-green);
+
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        body.dark-mode .premium-card-link {
+            color: #e4c878;
+        }
+
+        /* ---------------- QURAN ---------------- */
+
+        .premium-quran {
+            background: var(--premium-cream);
+        }
+
+        body.dark-mode .premium-quran {
+            background: #09231d;
+        }
+
+        .premium-quran-box {
+            max-width: 920px;
+            margin: auto;
+
+            text-align: center;
+
+            padding: 70px 55px;
+
+            border: 1px solid rgba(199,164,91,.35);
+            border-radius: 18px;
+
+            background:
+                radial-gradient(
+                    circle at center,
+                    rgba(199,164,91,.08),
+                    transparent 60%
+                );
+        }
+
+        .premium-quran-symbol {
+            font-size: 32px;
+            color: var(--premium-gold);
+        }
+
+        .premium-quran-box h2 {
+            margin: 20px 0;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 38px;
+
+            color: var(--premium-green);
+        }
+
+        body.dark-mode .premium-quran-box h2 {
+            color: white;
+        }
+
+        .premium-quran-box p {
+            margin: auto;
+
+            max-width: 720px;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 22px;
+            line-height: 2.3;
+
+            color: var(--premium-text);
+        }
+
+        body.dark-mode .premium-quran-box p {
+            color: #dce7e2;
+        }
+
+        .premium-quran-reference {
+            margin-top: 22px;
+
+            color: var(--premium-gold);
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        /* ---------------- CATEGORIES ---------------- */
+
+        .premium-categories {
+            display: grid;
+            grid-template-columns: repeat(5, 1fr);
+            gap: 13px;
+        }
+
+        .premium-category {
+            min-height: 110px;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+
+            padding: 20px;
+
+            border: 1px solid var(--premium-border);
+            border-radius: 12px;
+
+            color: var(--premium-green);
+
+            background: rgba(255,255,255,.55);
+
+            transition: .25s;
+        }
+
+        body.dark-mode .premium-category {
+            color: white;
+            background: #0c2922;
+            border-color: rgba(255,255,255,.08);
+        }
+
+        .premium-category:hover {
+            background: var(--premium-green);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .premium-category strong {
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 19px;
+        }
+
+        .premium-category span {
+            margin-top: 5px;
+
+            font-size: 11px;
+            opacity: .65;
+        }
+
+        /* ---------------- CTA ---------------- */
+
+        .premium-cta {
+            width: min(1240px, 92%);
+            margin: 20px auto 100px;
+
+            padding: 70px;
+
+            text-align: center;
+
+            border-radius: 22px;
+
+            background:
+                linear-gradient(
+                    135deg,
+                    #0b3d32,
+                    #145746
+                );
+
+            color: white;
+        }
+
+        .premium-cta h2 {
+            margin: 0 0 15px;
+
+            font-family: "Noto Naskh Arabic", serif;
+            font-size: 42px;
+        }
+
+        .premium-cta p {
+            max-width: 650px;
+            margin: 0 auto 30px;
+
+            color: rgba(255,255,255,.76);
+            line-height: 2;
+        }
+
+        /* ---------------- FOOTER ---------------- */
+
+        .premium-footer {
+            background: #061a15;
+            color: white;
+
+            padding: 70px 0 25px;
+        }
+
+        .premium-footer-inner {
+            width: min(1240px, 92%);
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1.4fr 1fr 1fr 1fr;
+            gap: 50px;
+        }
+
+        .premium-footer-logo {
+            font-family: "Inter", sans-serif;
+            font-size: 30px;
+            font-weight: 800;
+            letter-spacing: .15em;
+        }
+
+        .premium-footer p {
+            color: rgba(255,255,255,.58);
+            line-height: 2;
+            font-size: 13px;
+        }
+
+        .premium-footer h4 {
+            margin-top: 0;
+            color: #dfc47d;
+        }
+
+        .premium-footer a {
+            display: block;
+
+            margin: 10px 0;
+
+            color: rgba(255,255,255,.66);
+            font-size: 13px;
+        }
+
+        .premium-footer a:hover {
+            color: white;
+        }
+
+        .premium-footer-bottom {
+            width: min(1240px, 92%);
+            margin: 50px auto 0;
+
+            padding-top: 20px;
+
+            border-top: 1px solid rgba(255,255,255,.1);
+
+            color: rgba(255,255,255,.4);
+
+            font-size: 11px;
+        }
+
+        /* ---------------- MOBILE ---------------- */
+
+        @media (max-width: 900px) {
+
+            .premium-nav {
+                display: none;
+            }
+
+            .premium-mobile {
+                display: block;
+            }
+
+            .premium-hero-inner {
+                grid-template-columns: 1fr;
+                padding: 60px 0;
+            }
+
+            .premium-hero-visual {
+                max-width: 620px;
+                width: 100%;
+                margin: auto;
+            }
+
+            .premium-featured {
+                grid-template-columns: 1fr;
+            }
+
+            .premium-featured-content {
+                padding: 40px 30px;
+            }
+
+            .premium-articles {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .premium-categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+            .premium-footer-inner {
+                grid-template-columns: 1fr 1fr;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .premium-header-inner {
+                min-height: 70px;
+            }
+
+            .premium-logo-en {
+                font-size: 22px;
+            }
+
+            .premium-logo-fa {
+                font-size: 11px;
+            }
+
+            .premium-hero-inner {
+                width: 90%;
+                padding: 45px 0;
+            }
+
+            .premium-hero h1 {
+                font-size: 45px;
+            }
+
+            .premium-hero-text {
+                font-size: 15px;
+                line-height: 2;
+            }
+
+            .premium-section {
+                padding: 70px 0;
+            }
+
+            .premium-section-heading {
+                display: block;
+            }
+
+            .premium-section-heading h2 {
+                font-size: 33px;
+            }
+
+            .premium-section-heading p {
+                margin-top: 12px;
+            }
+
+            .premium-more {
+                display: inline-block;
+                margin-top: 15px;
+            }
+
+            .premium-articles {
+                grid-template-columns: 1fr;
+            }
+
+            .premium-categories {
+                grid-template-columns: 1fr 1fr;
+            }
+
+            .premium-quran-box {
+                padding: 45px 22px;
+            }
+
+            .premium-quran-box h2 {
+                font-size: 30px;
+            }
+
+            .premium-quran-box p {
+                font-size: 19px;
+            }
+
+            .premium-cta {
+                padding: 50px 25px;
+            }
+
+            .premium-cta h2 {
+                font-size: 32px;
+            }
+
+            .premium-footer-inner {
+                grid-template-columns: 1fr;
+            }
+        }
+
+    </style>
 </head>
+
 
 <body>
 
     <!-- ================= HEADER ================= -->
 
-    <header class="site-header">
+    <header class="premium-header">
 
-        <div class="header-container">
+        <div class="premium-header-inner">
 
-            <a href="index.html" class="logo">
-                <span class="logo-fa">اندیشه</span>
-                <span class="logo-en">ANDISHA</span>
+            <a href="index.html" class="premium-logo">
+                <span class="premium-logo-en">ANDISHA</span>
+                <span class="premium-logo-fa">
+                    مجله‌ای برای فکر کردن
+                </span>
             </a>
 
-            <nav class="main-nav">
+            <nav class="premium-nav">
 
-                <a href="index.html" class="active">
-                    خانه
-                </a>
+                <a href="index.html">خانه</a>
 
-                <a href="categories.html">
-                    دسته‌بندی‌ها
-                </a>
+                <a href="articles.html">مقالات</a>
 
-                <a href="articles.html">
-                    مقالات
-                </a>
+                <a href="categories.html">موضوعات</a>
 
-                <a href="about.html">
-                    درباره ما
-                </a>
+                <a href="about.html">درباره ما</a>
 
-                <a href="contact.html">
-                    تماس با ما
-                </a>
+                <a href="contact.html">تماس</a>
 
-                <button id="darkModeToggle" class="dark-mode-btn" type="button"
+            </nav>
+
+            <div class="premium-actions">
+
+                <button
+                    class="premium-theme"
+                    onclick="toggleDarkMode()"
                     aria-label="تغییر حالت تاریک">
                     ◐
                 </button>
 
-            </nav>
+                <button
+                    class="premium-mobile"
+                    onclick="toggleMobileMenu()"
+                    aria-label="منوی موبایل">
+                    ☰
+                </button>
+
+            </div>
 
         </div>
 
     </header>
 
 
-    <!-- ================= HERO ================= -->
-
     <main>
 
-        <section class="hero-section">
+        <!-- ================= HERO ================= -->
 
-            <div class="hero-overlay"></div>
+        <section class="premium-hero">
 
-            <div class="hero-content">
+            <div class="premium-hero-inner">
 
-                <div class="hero-label">
-                    مجله‌ای برای فکر کردن
-                </div>
+                <div>
 
-                <h1>
-                    اندیشه
-                </h1>
+                    <div class="premium-kicker">
+                        اندیشه • دانش • فرهنگ • ایمان
+                    </div>
 
-                <p class="hero-subtitle">
-                    برای انسان‌هایی که می‌خواهند
-                    <strong>بیشتر بدانند، عمیق‌تر بیندیشند</strong>
-                    و جهان را بهتر بفهمند.
-                </p>
+                    <h1>
+                        برای دیدن جهان،
+                        <span>باید اندیشید.</span>
+                    </h1>
 
-                <p class="hero-quran">
-                    «وَقُلْ رَبِّ زِدْنِي عِلْمًا»
-                </p>
-
-                <p class="hero-quran-translation">
-                    و بگو: پروردگارا، بر دانش من بیفزا.
-                </p>
-
-                <div class="hero-buttons">
-
-                    <a href="#articles" class="btn btn-primary">
-                        خواندن مقالات
-                    </a>
-
-                    <a href="categories.html" class="btn btn-secondary">
-                        کشف موضوعات
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= INTRO ================= -->
-
-        <section class="intro-section">
-
-            <div class="section-container">
-
-                <div class="section-heading">
-
-                    <span class="section-label">
-                        اندیشه چیست؟
-                    </span>
-
-                    <h2>
-                        جایی برای پرسیدن، آموختن و اندیشیدن
-                    </h2>
-
-                    <p>
-                        اندیشه تلاش می‌کند میان دانش، ایمان، فرهنگ و زندگی
-                        پلی بسازد؛ جایی که بتوانیم درباره انسان، جهان،
-                        جامعه و آینده با نگاهی عمیق‌تر صحبت کنیم.
+                    <p class="premium-hero-text">
+                        اندیشه مجله‌ای برای انسان امروز است؛
+                        جایی برای گفت‌وگو درباره انسان، اسلام، علم،
+                        فلسفه، تاریخ، جامعه و آینده.
+                        ما تلاش می‌کنیم پرسش‌های مهم را جدی بگیریم
+                        و پاسخ‌ها را با دانش و اندیشه بررسی کنیم.
                     </p>
 
-                </div>
+                    <div class="premium-hero-buttons">
 
-            </div>
-
-        </section>
-
-
-        <!-- ================= ARTICLES ================= -->
-
-        <section class="articles-section" id="articles">
-
-            <div class="section-container">
-
-                <div class="section-top">
-
-                    <div>
-                        <span class="section-label">
-                            تازه‌ترین مطالب
-                        </span>
-
-                        <h2>
-                            مقالات منتخب
-                        </h2>
-                    </div>
-
-                    <a href="articles.html" class="view-all">
-                        مشاهده همه مقالات →
-                    </a>
-
-                </div>
-
-
-                <div class="articles-grid">
-
-
-                    <!-- ARTICLE 1 -->
-
-                    <article class="article-card"
-                        data-category="philosophy">
-
-                        <a href="article5.html" class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=1200&q=85"
-                                alt="کتاب و اندیشه">
-
-                            <span class="article-category">
-                                فلسفه و اندیشه
-                            </span>
-
+                        <a
+                            href="articles.html"
+                            class="premium-btn premium-btn-primary">
+                            مطالعه مقالات
                         </a>
 
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>۱۴۰۵/۰۶/۲۴</span>
-                                <span>۷ دقیقه مطالعه</span>
-                            </div>
-
-                            <h3>
-                                انسان چرا به دنبال معناست؟
-                            </h3>
-
-                            <p>
-                                انسان فقط برای زنده ماندن زندگی نمی‌کند؛
-                                او می‌خواهد بداند چرا زندگی می‌کند و
-                                چگونه می‌تواند زندگی معناداری بسازد.
-                            </p>
-
-                            <a href="article5.html" class="card-link">
-                                ادامه مطلب →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ARTICLE 2 -->
-
-                    <article class="article-card"
-                        data-category="islam">
-
-                        <a href="article2.html" class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85"
-                                alt="قرآن و اندیشه اسلامی">
-
-                            <span class="article-category">
-                                اسلام و اخلاق
-                            </span>
-
-                        </a>
-
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>۱۴۰۵/۰۶/۲۰</span>
-                                <span>۶ دقیقه مطالعه</span>
-                            </div>
-
-                            <h3>
-                                ارزش‌های انسانی از نگاه اسلام
-                            </h3>
-
-                            <p>
-                                کرامت انسان، عدالت، صداقت، رحمت و مسئولیت
-                                از مهم‌ترین ارزش‌هایی هستند که در اندیشه
-                                اسلامی جایگاه ویژه‌ای دارند.
-                            </p>
-
-                            <a href="article2.html" class="card-link">
-                                ادامه مطلب →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ARTICLE 3 -->
-
-                    <article class="article-card"
-                        data-category="history">
-
-                        <a href="article3.html" class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1564399579883-451a5d44ec08?auto=format&fit=crop&w=1200&q=85"
-                                alt="تمدن و تاریخ">
-
-                            <span class="article-category">
-                                تاریخ و تمدن
-                            </span>
-
-                        </a>
-
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>۱۴۰۵/۰۶/۱۸</span>
-                                <span>۸ دقیقه مطالعه</span>
-                            </div>
-
-                            <h3>
-                                تمدن‌ها چگونه شکل گرفتند؟
-                            </h3>
-
-                            <p>
-                                از نخستین شهرها تا تمدن‌های بزرگ اسلامی،
-                                انسان چگونه توانست جوامع پیچیده و فرهنگ‌های
-                                ماندگار ایجاد کند؟
-                            </p>
-
-                            <a href="article3.html" class="card-link">
-                                ادامه مطلب →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ARTICLE 4 -->
-
-                    <article class="article-card"
-                        data-category="literature">
-
-                        <a href="article4.html" class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1200&q=85"
-                                alt="نوشتن و ادبیات">
-
-                            <span class="article-category">
-                                ادبیات و شعر
-                            </span>
-
-                        </a>
-
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>۱۴۰۵/۰۶/۱۶</span>
-                                <span>۵ دقیقه مطالعه</span>
-                            </div>
-
-                            <h3>
-                                چرا انسان به شعر نیاز دارد؟
-                            </h3>
-
-                            <p>
-                                شعر فقط مجموعه‌ای از واژه‌ها نیست؛
-                                راهی است برای بیان احساس، تجربه،
-                                زیبایی و حقیقت‌هایی که گاهی زبان عادی
-                                قادر به بیان آن‌ها نیست.
-                            </p>
-
-                            <a href="article4.html" class="card-link">
-                                ادامه مطلب →
-                            </a>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ARTICLE 5 -->
-
-                    <article class="article-card"
-                        data-category="science">
-
-                        <div class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=1200&q=85"
-                                alt="علم و دانش">
-
-                            <span class="article-category">
-                                علم و دانش
-                            </span>
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>به‌زودی</span>
-                                <span>مطالعه</span>
-                            </div>
-
-                            <h3>
-                                علم چگونه جهان ما را تغییر داد؟
-                            </h3>
-
-                            <p>
-                                نگاهی به نقش علم در شناخت جهان،
-                                پیشرفت تمدن و تغییر زندگی انسان.
-                            </p>
-
-                            <span class="card-link disabled">
-                                به‌زودی
-                            </span>
-
-                        </div>
-
-                    </article>
-
-
-                    <!-- ARTICLE 6 -->
-
-                    <article class="article-card"
-                        data-category="psychology">
-
-                        <div class="article-image">
-
-                            <img
-                                src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=1200&q=85"
-                                alt="روان‌شناسی و ذهن">
-
-                            <span class="article-category">
-                                روان‌شناسی
-                            </span>
-
-                        </div>
-
-                        <div class="article-content">
-
-                            <div class="article-meta">
-                                <span>به‌زودی</span>
-                                <span>مطالعه</span>
-                            </div>
-
-                            <h3>
-                                چرا افکار ما بر زندگی ما اثر می‌گذارند؟
-                            </h3>
-
-                            <p>
-                                شناخت ذهن و افکار می‌تواند به ما کمک کند
-                                رفتار، تصمیم‌ها و زندگی خود را بهتر بفهمیم.
-                            </p>
-
-                            <span class="card-link disabled">
-                                به‌زودی
-                            </span>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- ================= EDITOR CHOICE ================= -->
-
-        <section class="featured-section">
-
-            <div class="section-container">
-
-                <div class="featured-box">
-
-                    <div class="featured-text">
-
-                        <span class="section-label">
-                            انتخاب سردبیر
-                        </span>
-
-                        <h2>
-                            آزادی چیست؟
-                        </h2>
-
-                        <p>
-                            آیا آزادی یعنی انجام هر کاری که می‌خواهیم؟
-                            یا آزادی واقعی زمانی آغاز می‌شود که انسان
-                            مسئولیت انتخاب‌های خود را بپذیرد؟
-                        </p>
-
-                        <a href="article.html" class="btn btn-primary">
-                            مطالعه مقاله
+                        <a
+                            href="categories.html"
+                            class="premium-btn premium-btn-outline">
+                            کشف موضوعات
                         </a>
 
                     </div>
 
-                    <div class="featured-image">
+                </div>
+
+
+                <div class="premium-hero-visual">
+
+                    <div class="premium-hero-image">
 
                         <img
-                            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=1400&q=85"
-                            alt="آزادی و اندیشه">
+                            src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85"
+                            alt="قرآن و کتاب در فضای مطالعه"
+                            loading="eager">
+
+                        <div class="premium-image-overlay"></div>
+
+                        <div class="premium-image-caption">
+
+                            <small>اندیشه و ایمان</small>
+
+                            <h3>
+                                دانایی، آغاز فهمیدن است.
+                            </h3>
+
+                        </div>
 
                     </div>
+
+                    <div class="premium-ornament"></div>
 
                 </div>
 
@@ -489,190 +1085,254 @@
         </section>
 
 
-        <!-- ================= DEEP READING ================= -->
+        <!-- ================= FEATURED ================= -->
 
-        <section class="deep-reading">
+        <section class="premium-section">
 
-            <div class="section-container">
+            <div class="premium-section-heading">
 
-                <div class="section-heading center">
+                <div>
 
-                    <span class="section-label">
-                        مطالعه عمیق
+                    <div class="premium-section-label">
+                        پرونده ویژه
+                    </div>
+
+                    <h2>
+                        یک پرسش، هزاران راه برای اندیشیدن
+                    </h2>
+
+                </div>
+
+                <p>
+                    بعضی پرسش‌ها پاسخ ساده ندارند؛
+                    باید درباره آن‌ها خواند، فکر کرد و دوباره پرسید.
+                </p>
+
+            </div>
+
+
+            <article class="premium-featured">
+
+                <div class="premium-featured-image">
+
+                    <img
+                        src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
+                        alt="کتاب و مطالعه"
+                        loading="lazy">
+
+                </div>
+
+
+                <div class="premium-featured-content">
+
+                    <span class="label">
+                        فلسفه و اندیشه
                     </span>
 
                     <h2>
-                        برای ذهن‌های کنجکاو
+                        انسان چرا به دنبال معناست؟
                     </h2>
 
                     <p>
-                        مقالاتی برای کسانی که به دنبال پاسخ‌های ساده
-                        برای پرسش‌های عمیق زندگی هستند.
+                        انسان تنها برای زنده ماندن زندگی نمی‌کند.
+                        او می‌خواهد بداند چرا آمده، برای چه زندگی می‌کند
+                        و چه چیزی به زندگی او معنا می‌دهد.
                     </p>
 
+                    <a
+                        href="article5.html"
+                        class="premium-btn">
+                        خواندن مقاله
+                    </a>
+
                 </div>
 
-            </div>
+            </article>
 
         </section>
 
 
-        <!-- ================= TOPICS ================= -->
+        <!-- ================= LATEST ARTICLES ================= -->
 
-        <section class="topics-section">
+        <section class="premium-section">
 
-            <div class="section-container">
+            <div class="premium-section-heading">
 
-                <div class="section-top">
+                <div>
 
-                    <div>
-
-                        <span class="section-label">
-                            موضوعات
-                        </span>
-
-                        <h2>
-                            دنیای اندیشه
-                        </h2>
-
+                    <div class="premium-section-label">
+                        تازه‌ترین نوشته‌ها
                     </div>
 
-                    <a href="categories.html" class="view-all">
-                        همه موضوعات →
-                    </a>
+                    <h2>
+                        از میان مقالات اندیشه
+                    </h2>
 
                 </div>
 
+                <a
+                    href="articles.html"
+                    class="premium-more">
+                    همه مقالات ←
+                </a>
 
-                <div class="topics-grid">
+            </div>
 
 
-                    <a href="articles.html?category=islam"
-                        class="topic-card">
+            <div class="premium-articles">
 
-                        <span class="topic-icon">☪</span>
 
-                        <h3>
-                            اسلام و ادیان
-                        </h3>
+                <article class="premium-card">
 
-                        <p>
-                            ایمان، قرآن، اخلاق و اندیشه اسلامی
-                        </p>
+                    <a href="article.html">
+
+                        <div class="premium-card-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=900&q=80"
+                                alt="آزادی و اندیشه"
+                                loading="lazy">
+
+                        </div>
 
                     </a>
 
+                    <div class="premium-card-body">
 
-                    <a href="articles.html?category=philosophy"
-                        class="topic-card">
-
-                        <span class="topic-icon">∞</span>
-
-                        <h3>
+                        <div class="premium-card-category">
                             فلسفه و اندیشه
+                        </div>
+
+                        <h3>
+                            آزادی چیست؟
                         </h3>
 
                         <p>
-                            پرسش‌های بنیادین درباره انسان و جهان
+                            آزادی یکی از بنیادی‌ترین مفاهیم زندگی انسان است؛
+                            اما مرز آزادی کجاست؟
                         </p>
+
+                        <a
+                            href="article.html"
+                            class="premium-card-link">
+                            ادامه مطلب ←
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="premium-card">
+
+                    <a href="article2.html">
+
+                        <div class="premium-card-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=900&q=80"
+                                alt="کتاب و ارزش‌های انسانی"
+                                loading="lazy">
+
+                        </div>
 
                     </a>
 
+                    <div class="premium-card-body">
 
-                    <a href="articles.html?category=science"
-                        class="topic-card">
-
-                        <span class="topic-icon">⚛</span>
+                        <div class="premium-card-category">
+                            اسلام و اخلاق
+                        </div>
 
                         <h3>
-                            علم و دانش
+                            ارزش‌های انسانی از نگاه اسلام
                         </h3>
 
                         <p>
-                            کشف، دانش و شناخت جهان
+                            کرامت، عدالت، صداقت، رحمت و مسئولیت؛
+                            ارزش‌هایی که جامعه انسانی را می‌سازند.
                         </p>
+
+                        <a
+                            href="article2.html"
+                            class="premium-card-link">
+                            ادامه مطلب ←
+                        </a>
+
+                    </div>
+
+                </article>
+
+
+                <article class="premium-card">
+
+                    <a href="article3.html">
+
+                        <div class="premium-card-image">
+
+                            <img
+                                src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"
+                                alt="معماری و تمدن اسلامی"
+                                loading="lazy">
+
+                        </div>
 
                     </a>
 
+                    <div class="premium-card-body">
 
-                    <a href="articles.html?category=history"
-                        class="topic-card">
-
-                        <span class="topic-icon">⌛</span>
-
-                        <h3>
+                        <div class="premium-card-category">
                             تاریخ و تمدن
-                        </h3>
-
-                        <p>
-                            گذشته، تمدن‌ها و تجربه انسان
-                        </p>
-
-                    </a>
-
-
-                    <a href="articles.html?category=psychology"
-                        class="topic-card">
-
-                        <span class="topic-icon">◉</span>
+                        </div>
 
                         <h3>
-                            روان‌شناسی
+                            تمدن‌ها چگونه شکل گرفتند؟
                         </h3>
 
                         <p>
-                            ذهن، رفتار و زندگی انسان
+                            از شهر و قانون تا دانش و فرهنگ؛
+                            تمدن حاصل قرن‌ها تجربه انسانی است.
                         </p>
 
-                    </a>
+                        <a
+                            href="article3.html"
+                            class="premium-card-link">
+                            ادامه مطلب ←
+                        </a>
+
+                    </div>
+
+                </article>
 
 
-                    <a href="articles.html?category=literature"
-                        class="topic-card">
+            </div>
 
-                        <span class="topic-icon">✒</span>
-
-                        <h3>
-                            ادبیات و شعر
-                        </h3>
-
-                        <p>
-                            شعر، داستان، زبان و زیبایی
-                        </p>
-
-                    </a>
+        </section>
 
 
-                    <a href="articles.html?category=ethics"
-                        class="topic-card">
+        <!-- ================= QURAN ================= -->
 
-                        <span class="topic-icon">◇</span>
+        <section class="premium-quran">
 
-                        <h3>
-                            اخلاق و ارزش‌ها
-                        </h3>
+            <div class="premium-section">
 
-                        <p>
-                            انسانیت، مسئولیت و ارزش‌های انسانی
-                        </p>
+                <div class="premium-quran-box">
 
-                    </a>
+                    <div class="premium-quran-symbol">
+                        ۞
+                    </div>
 
+                    <h2>
+                        اندیشه از پرسش آغاز می‌شود
+                    </h2>
 
-                    <a href="categories.html"
-                        class="topic-card all-topics">
+                    <p>
+                        «أَفَلَا تَعْقِلُونَ»
+                    </p>
 
-                        <span class="topic-icon">＋</span>
-
-                        <h3>
-                            همه موضوعات
-                        </h3>
-
-                        <p>
-                            مشاهده تمام دسته‌بندی‌های مجله
-                        </p>
-
-                    </a>
+                    <div class="premium-quran-reference">
+                        قرآن کریم • دعوت به تعقل و اندیشیدن
+                    </div>
 
                 </div>
 
@@ -681,47 +1341,129 @@
         </section>
 
 
-        <!-- ================= NEWSLETTER ================= -->
+        <!-- ================= CATEGORIES ================= -->
 
-        <section class="newsletter-section">
+        <section class="premium-section">
 
-            <div class="section-container">
+            <div class="premium-section-heading">
 
-                <div class="newsletter-box">
+                <div>
 
-                    <div>
-
-                        <span class="section-label">
-                            همراه اندیشه باشید
-                        </span>
-
-                        <h2>
-                            مطالب تازه را از دست ندهید
-                        </h2>
-
-                        <p>
-                            به‌زودی امکان عضویت در خبرنامه اندیشه
-                            برای دریافت مقالات جدید فعال خواهد شد.
-                        </p>
-
+                    <div class="premium-section-label">
+                        کتابخانه اندیشه
                     </div>
 
-                    <form class="newsletter-form">
-
-                        <input
-                            type="email"
-                            placeholder="ایمیل شما"
-                            aria-label="ایمیل">
-
-                        <button type="submit">
-                            عضویت
-                        </button>
-
-                    </form>
+                    <h2>
+                        موضوعات را کشف کنید
+                    </h2>
 
                 </div>
 
+                <a
+                    href="categories.html"
+                    class="premium-more">
+                    همه موضوعات ←
+                </a>
+
             </div>
+
+
+            <div class="premium-categories">
+
+                <a
+                    href="articles.html?category=philosophy"
+                    class="premium-category">
+                    <strong>فلسفه و اندیشه</strong>
+                    <span>تفکر و پرسش</span>
+                </a>
+
+                <a
+                    href="articles.html?category=islam"
+                    class="premium-category">
+                    <strong>اسلام و ادیان</strong>
+                    <span>قرآن و معارف</span>
+                </a>
+
+                <a
+                    href="articles.html?category=science"
+                    class="premium-category">
+                    <strong>علم و دانش</strong>
+                    <span>شناخت جهان</span>
+                </a>
+
+                <a
+                    href="articles.html?category=history"
+                    class="premium-category">
+                    <strong>تاریخ و تمدن</strong>
+                    <span>گذشته و امروز</span>
+                </a>
+
+                <a
+                    href="articles.html?category=social-science"
+                    class="premium-category">
+                    <strong>علوم اجتماعی</strong>
+                    <span>انسان و جامعه</span>
+                </a>
+
+                <a
+                    href="articles.html?category=psychology"
+                    class="premium-category">
+                    <strong>روان‌شناسی</strong>
+                    <span>ذهن و رفتار</span>
+                </a>
+
+                <a
+                    href="articles.html?category=literature"
+                    class="premium-category">
+                    <strong>ادبیات و شعر</strong>
+                    <span>زبان و خیال</span>
+                </a>
+
+                <a
+                    href="articles.html?category=ethics"
+                    class="premium-category">
+                    <strong>اخلاق</strong>
+                    <span>ارزش‌های انسانی</span>
+                </a>
+
+                <a
+                    href="articles.html?category=technology"
+                    class="premium-category">
+                    <strong>تکنولوژی</strong>
+                    <span>آینده و فناوری</span>
+                </a>
+
+                <a
+                    href="articles.html?category=afghanistan"
+                    class="premium-category">
+                    <strong>افغانستان</strong>
+                    <span>جامعه و سرزمین</span>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- ================= CTA ================= -->
+
+        <section class="premium-cta">
+
+            <h2>
+                فکر کردن را آغاز کنیم
+            </h2>
+
+            <p>
+                اندیشه می‌خواهد جایی باشد برای خواندن،
+                پرسیدن، یادگرفتن و گفت‌وگوی محترمانه درباره جهان.
+            </p>
+
+            <a
+                href="articles.html"
+                class="premium-btn"
+                style="background:#d0ae63;color:#102d25;">
+                ورود به مجله
+            </a>
 
         </section>
 
@@ -730,41 +1472,35 @@
 
     <!-- ================= FOOTER ================= -->
 
-    <footer class="site-footer">
+    <footer class="premium-footer">
 
-        <div class="footer-container">
+        <div class="premium-footer-inner">
 
+            <div>
 
-            <div class="footer-brand">
-
-                <div class="footer-logo">
-                    اندیشه
+                <div class="premium-footer-logo">
+                    ANDISHA
                 </div>
 
                 <p>
-                    مجله‌ای اسلامی، علمی و فکری برای انسان‌هایی
-                    که می‌خواهند بیشتر بدانند و عمیق‌تر بیندیشند.
+                    مجله‌ای برای فکر کردن؛
+                    درباره انسان، اسلام، علم، فرهنگ،
+                    تاریخ و آینده.
                 </p>
 
             </div>
 
 
-            <div class="footer-column">
+            <div>
 
-                <h3>
-                    دسترسی سریع
-                </h3>
-
-                <a href="index.html">
-                    خانه
-                </a>
+                <h4>مجله</h4>
 
                 <a href="articles.html">
                     مقالات
                 </a>
 
                 <a href="categories.html">
-                    دسته‌بندی‌ها
+                    موضوعات
                 </a>
 
                 <a href="about.html">
@@ -774,36 +1510,32 @@
             </div>
 
 
-            <div class="footer-column">
+            <div>
 
-                <h3>
-                    موضوعات
-                </h3>
-
-                <a href="articles.html?category=islam">
-                    اسلام
-                </a>
+                <h4>موضوعات</h4>
 
                 <a href="articles.html?category=philosophy">
                     فلسفه
+                </a>
+
+                <a href="articles.html?category=islam">
+                    اسلام
                 </a>
 
                 <a href="articles.html?category=science">
                     علم
                 </a>
 
-                <a href="articles.html?category=literature">
-                    ادبیات
+                <a href="articles.html?category=history">
+                    تاریخ
                 </a>
 
             </div>
 
 
-            <div class="footer-column">
+            <div>
 
-                <h3>
-                    ارتباط
-                </h3>
+                <h4>ارتباط</h4>
 
                 <a href="contact.html">
                     تماس با ما
@@ -818,12 +1550,9 @@
         </div>
 
 
-        <div class="footer-bottom">
+        <div class="premium-footer-bottom">
 
-            <p>
-                © <span id="currentYear"></span>
-                ANDISHA Magazine — تمامی حقوق محفوظ است.
-            </p>
+            © ۱۴۰۵ اندیشه — تمام حقوق محفوظ است.
 
         </div>
 
@@ -831,73 +1560,6 @@
 
 
     <script src="script.js"></script>
-
-    <script>
-
-        // اسکرول نرم
-        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
-
-            link.addEventListener("click", function (event) {
-
-                const target = document.querySelector(
-                    this.getAttribute("href")
-                );
-
-                if (target) {
-
-                    event.preventDefault();
-
-                    target.scrollIntoView({
-                        behavior: "smooth"
-                    });
-
-                }
-
-            });
-
-        });
-
-
-        // خبرنامه
-        const newsletterForm =
-            document.querySelector(".newsletter-form");
-
-        if (newsletterForm) {
-
-            newsletterForm.addEventListener("submit", function (event) {
-
-                event.preventDefault();
-
-                const input =
-                    newsletterForm.querySelector("input");
-
-                if (input && input.value.trim()) {
-
-                    alert(
-                        "عضویت شما با موفقیت ثبت شد. به‌زودی خبرنامه اندیشه فعال خواهد شد."
-                    );
-
-                    input.value = "";
-
-                }
-
-            });
-
-        }
-
-
-        // سال فعلی
-        const yearElement =
-            document.getElementById("currentYear");
-
-        if (yearElement) {
-
-            yearElement.textContent =
-                new Date().getFullYear();
-
-        }
-
-    </script>
 
 </body>
 

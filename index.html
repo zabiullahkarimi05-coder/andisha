@@ -115,16 +115,21 @@
 <main>
 
 
-    <div class="section-title">
+    <!-- CATEGORY RESULT -->
+
+    <div id="categoryHeader" class="section-title">
 
         <span>
-            LATEST STORIES
+            ANDISHA TOPICS
         </span>
 
-
-        <h2>
+        <h2 id="categoryTitle">
             تازه‌ترین مقاله‌ها
         </h2>
+
+        <p id="categoryDescription">
+            نوشته‌هایی درباره انسان، اندیشه، جامعه، فرهنگ و جهان.
+        </p>
 
     </div>
 
@@ -139,7 +144,7 @@
 
         <!-- ARTICLE 01 -->
 
-        <article>
+        <article data-category="philosophy">
 
             <div class="article-number">
                 01
@@ -147,7 +152,7 @@
 
 
             <span class="article-category">
-                فلسفه
+                فلسفه و اندیشه
             </span>
 
 
@@ -172,7 +177,7 @@
 
         <!-- ARTICLE 02 -->
 
-        <article>
+        <article data-category="islam">
 
             <div class="article-number">
                 02
@@ -180,7 +185,7 @@
 
 
             <span class="article-category">
-                اسلام
+                اسلام و ادیان
             </span>
 
 
@@ -205,7 +210,7 @@
 
         <!-- ARTICLE 03 -->
 
-        <article>
+        <article data-category="history">
 
             <div class="article-number">
                 03
@@ -213,7 +218,7 @@
 
 
             <span class="article-category">
-                تاریخ
+                تاریخ و تمدن
             </span>
 
 
@@ -238,7 +243,7 @@
 
         <!-- ARTICLE 04 -->
 
-        <article>
+        <article data-category="literature">
 
             <div class="article-number">
                 04
@@ -246,7 +251,7 @@
 
 
             <span class="article-category">
-                ادبیات
+                ادبیات و شعر
             </span>
 
 
@@ -267,6 +272,42 @@
 
         </article>
 
+
+    </div>
+
+
+
+    <!-- =========================
+         CATEGORY EMPTY
+    ========================= -->
+
+    <div id="categoryEmpty" class="no-results" style="display:none;">
+
+        <strong>
+            مقاله‌ای در این موضوع پیدا نشد.
+        </strong>
+
+        <p>
+            می‌توانید موضوع دیگری را از صفحه موضوعات انتخاب کنید.
+        </p>
+
+        <a href="categories.html">
+            مشاهده همه موضوعات →
+        </a>
+
+    </div>
+
+
+
+    <!-- =========================
+         SHOW ALL
+    ========================= -->
+
+    <div id="showAllBox" style="display:none;">
+
+        <a href="index.html" class="read-more">
+            نمایش همه مقاله‌ها
+        </a>
 
     </div>
 

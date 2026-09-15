@@ -1,627 +1,380 @@
-/* =========================================================
-   ANDISHA MAGAZINE
-   Main JavaScript
-   ========================================================= */
+document.addEventListener("DOMContentLoaded", () => {
 
-document.addEventListener("DOMContentLoaded", function () {
+    /* =========================
+       DARK MODE
+    ========================== */
 
-    /* =====================================================
-       1. DARK MODE
-       ===================================================== */
+    const darkToggle = document.getElementById("darkModeToggle");
 
-    const darkModeButtons = document.querySelectorAll(".dark-mode-btn");
+    if (darkToggle) {
+        const savedTheme = localStorage.getItem("andisha-theme");
 
-    function applyTheme(theme) {
-        if (theme === "dark") {
+        if (savedTheme === "dark") {
             document.body.classList.add("dark-mode");
-        } else {
-            document.body.classList.remove("dark-mode");
+            darkToggle.textContent = "☀️";
         }
 
-        localStorage.setItem("andisha-theme", theme);
-        updateDarkModeButtons(theme);
-    }
-
-    function updateDarkModeButtons(theme) {
-        darkModeButtons.forEach(function (button) {
-            button.setAttribute(
-                "aria-label",
-                theme === "dark" ? "فعال کردن حالت روشن" : "فعال کردن حالت تاریک"
-            );
-
-            button.textContent = theme === "dark" ? "☀" : "☾";
-        });
-    }
-
-    const savedTheme = localStorage.getItem("andisha-theme");
-
-    if (savedTheme) {
-        applyTheme(savedTheme);
-    } else if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
-        applyTheme("dark");
-    } else {
-        applyTheme("light");
-    }
-
-    darkModeButtons.forEach(function (button) {
-        button.onclick = function (event) {
-            event.preventDefault();
+        darkToggle.addEventListener("click", () => {
+            document.body.classList.toggle("dark-mode");
 
             const isDark = document.body.classList.contains("dark-mode");
 
-            applyTheme(isDark ? "light" : "dark");
-        };
-    });
-
-
-    /* =====================================================
-       2. MOBILE MENU
-       ===================================================== */
-
-    const headerInner = document.querySelector(".header-inner");
-    const mainNav = document.querySelector(".main-nav");
-
-    if (headerInner && mainNav) {
-
-        let mobileButton = document.querySelector(".mobile-menu-btn");
-
-        if (!mobileButton) {
-
-            mobileButton = document.createElement("button");
-
-            mobileButton.className = "mobile-menu-btn";
-            mobileButton.type = "button";
-            mobileButton.setAttribute("aria-label", "باز کردن منو");
-            mobileButton.setAttribute("aria-expanded", "false");
-
-            mobileButton.innerHTML = "☰";
-
-            headerInner.insertBefore(mobileButton, mainNav);
-
-        }
-
-        mobileButton.addEventListener("click", function () {
-
-            const opened = mainNav.classList.toggle("mobile-open");
-
-            mobileButton.setAttribute(
-                "aria-expanded",
-                opened ? "true" : "false"
+            localStorage.setItem(
+                "andisha-theme",
+                isDark ? "dark" : "light"
             );
 
-            mobileButton.innerHTML = opened ? "×" : "☰";
+            darkToggle.textContent = isDark ? "☀️" : "🌙";
+        });
+    }
 
+
+    /* =========================
+       MOBILE MENU
+    ========================== */
+
+    const menuButton = document.querySelector(".mobile-menu");
+    const nav = document.querySelector(".main-nav");
+
+    if (menuButton && nav) {
+        menuButton.addEventListener("click", () => {
+            nav.classList.toggle("mobile-open");
         });
 
-        mainNav.querySelectorAll("a").forEach(function (link) {
-
-            link.addEventListener("click", function () {
-
-                if (window.innerWidth <= 900) {
-
-                    mainNav.classList.remove("mobile-open");
-
-                    mobileButton.setAttribute(
-                        "aria-expanded",
-                        "false"
-                    );
-
-                    mobileButton.innerHTML = "☰";
-
-                }
-
+        nav.querySelectorAll("a").forEach(link => {
+            link.addEventListener("click", () => {
+                nav.classList.remove("mobile-open");
             });
-
         });
-
     }
 
 
-    /* =====================================================
-       3. ARTICLE SEARCH
-       ===================================================== */
+    /* =========================
+       ARTICLE SEARCH
+    ========================== */
 
-    const articlesContainer = document.querySelector(".articles");
+    const searchInput =
+        document.getElementById("articleSearchInput") ||
+        document.getElementById("searchInput");
 
-    if (articlesContainer) {
+    const clearSearch =
+        document.getElementById("clearArticleSearch");
 
-        const articleCards =
-            Array.from(
-                articlesContainer.querySelectorAll(".article-card")
-            );
+    const searchInfo =
+        document.getElementById("articleSearchInfo");
 
-        if (articleCards.length > 0) {
+    const emptyState =
+        document.getElementById("articleEmptyState");
 
-            let searchBox =
-                document.querySelector(".article-search");
+    const articleCards =
+        Array.from(document.querySelectorAll(".article-card"));
 
-            if (!searchBox) {
-
-                searchBox = document.createElement("div");
-
-                searchBox.className = "article-search";
-
-                searchBox.innerHTML = `
-                    <div class="search-wrapper">
-                        <span class="search-icon">⌕</span>
-                        <input
-                            type="search"
-                            id="articleSearchInput"
-                            placeholder="جست‌وجو در مقالات..."
-                            autocomplete="off"
-                            aria-label="جست‌وجو در مقالات"
-                        >
-                        <button
-                            type="button"
-                            id="clearSearch"
-                            class="clear-search"
-                            aria-label="پاک کردن جست‌وجو"
-                        >
-                            ×
-                        </button>
-                    </div>
-                    <div
-                        id="searchResultInfo"
-                        class="search-result-info"
-                    ></div>
-                `;
-
-                articlesContainer.parentNode.insertBefore(
-                    searchBox,
-                    articlesContainer
-                );
-            }
-
-            const searchInput =
-                document.getElementById("articleSearchInput");
-
-            const clearSearch =
-                document.getElementById("clearSearch");
-
-            const resultInfo =
-                document.getElementById("searchResultInfo");
-
-            function searchArticles() {
-
-                if (!searchInput) return;
-
-                const query =
-                    searchInput.value
-                        .trim()
-                        .toLowerCase();
-
-                let visibleCount = 0;
-
-                articleCards.forEach(function (card) {
-
-                    const text =
-                        card.textContent.toLowerCase();
-
-                    const matches =
-                        query === "" ||
-                        text.includes(query);
-
-                    card.style.display =
-                        matches ? "" : "none";
-
-                    if (matches) {
-                        visibleCount++;
-                    }
-
-                });
-
-                if (resultInfo) {
-
-                    if (query === "") {
-
-                        resultInfo.textContent = "";
-
-                    } else {
-
-                        resultInfo.textContent =
-                            visibleCount +
-                            " مقاله پیدا شد";
-
-                    }
-
-                }
-
-                if (clearSearch) {
-
-                    clearSearch.style.display =
-                        query ? "block" : "none";
-
-                }
-
-            }
-
-            if (searchInput) {
-
-                searchInput.addEventListener(
-                    "input",
-                    searchArticles
-                );
-
-            }
-
-            if (clearSearch) {
-
-                clearSearch.addEventListener(
-                    "click",
-                    function () {
-
-                        searchInput.value = "";
-
-                        searchArticles();
-
-                        searchInput.focus();
-
-                    }
-                );
-
-            }
-
-        }
-
+    function normalizeText(text) {
+        return text
+            .toLowerCase()
+            .replace(/ي/g, "ی")
+            .replace(/ك/g, "ک")
+            .replace(/\s+/g, " ")
+            .trim();
     }
 
+    function updateSearch() {
 
-    /* =====================================================
-       4. CATEGORY FILTER
-       ===================================================== */
+        if (!articleCards.length) return;
 
-    const categoryCards =
-        document.querySelectorAll(".article-card");
-
-    const params =
-        new URLSearchParams(window.location.search);
-
-    const selectedCategory =
-        params.get("category");
-
-    if (
-        selectedCategory &&
-        categoryCards.length > 0
-    ) {
+        const query = searchInput
+            ? normalizeText(searchInput.value)
+            : "";
 
         let visibleCount = 0;
 
-        categoryCards.forEach(function (card) {
+        articleCards.forEach(card => {
 
-            const cardCategory =
-                card.dataset.category;
+            const text = normalizeText(card.innerText);
 
-            if (
-                cardCategory === selectedCategory ||
-                cardCategory === "all"
-            ) {
+            const matches =
+                !query ||
+                text.includes(query);
 
+            const category =
+                card.dataset.category || "";
+
+            const selectedCategory =
+                new URLSearchParams(window.location.search)
+                    .get("category");
+
+            const categoryMatches =
+                !selectedCategory ||
+                selectedCategory === "all" ||
+                category === selectedCategory;
+
+            if (matches && categoryMatches) {
                 card.style.display = "";
-
                 visibleCount++;
-
             } else {
-
                 card.style.display = "none";
-
             }
-
         });
 
-        const categoryNames = {
+        if (searchInfo) {
 
-            "philosophy": "فلسفه و اندیشه",
-            "islam": "اسلام و ادیان",
-            "social-science": "علوم اجتماعی",
-            "psychology": "روان‌شناسی",
-            "culture": "جامعه و فرهنگ",
-            "history": "تاریخ و تمدن",
-            "politics": "سیاست و حکومت",
-            "economy": "اقتصاد و کسب‌وکار",
-            "law": "حقوق و عدالت",
-            "science": "علم و دانش",
-            "health": "پزشکی و سلامت",
-            "technology": "تکنولوژی و آینده",
-            "education": "آموزش و دانشگاه",
-            "literature": "ادبیات و شعر",
-            "art": "هنر و سینما",
-            "language": "زبان و زبان‌شناسی",
-            "media": "رسانه و ارتباطات",
-            "environment": "محیط‌زیست و طبیعت",
-            "geography": "جغرافیا و جهان",
-            "afghanistan": "افغانستان",
-            "family": "زنان و خانواده",
-            "ethics": "اخلاق و ارزش‌های انسانی",
-            "review": "نقد و بررسی",
-            "books": "کتاب و معرفی آثار",
-            "opinions": "یادداشت و دیدگاه"
-
-        };
-
-        const categoryTitle =
-            categoryNames[selectedCategory];
-
-        const sectionHeading =
-            document.querySelector(".section-heading h2");
-
-        if (
-            sectionHeading &&
-            categoryTitle
-        ) {
-
-            sectionHeading.textContent =
-                "مقالات " + categoryTitle;
-
+            if (query) {
+                searchInfo.textContent =
+                    `نتیجه جستجو: ${visibleCount} مقاله`;
+            } else {
+                searchInfo.textContent =
+                    `تعداد مقالات: ${visibleCount}`;
+            }
         }
 
-        if (visibleCount === 0) {
-
-            showEmptyCategoryMessage(
-                categoryTitle || "این دسته"
-            );
-
+        if (emptyState) {
+            emptyState.style.display =
+                visibleCount === 0 ? "block" : "none";
         }
 
+        if (clearSearch) {
+            clearSearch.style.display =
+                query ? "inline-flex" : "none";
+        }
     }
 
 
-    /* =====================================================
-       5. EMPTY CATEGORY MESSAGE
-       ===================================================== */
-
-    function showEmptyCategoryMessage(categoryName) {
-
-        const articlesSection =
-            document.querySelector(".articles");
-
-        if (!articlesSection) return;
-
-        const oldMessage =
-            document.querySelector(".empty-category");
-
-        if (oldMessage) {
-            oldMessage.remove();
-        }
-
-        const message =
-            document.createElement("div");
-
-        message.className = "empty-category";
-
-        message.innerHTML = `
-            <div class="empty-category-icon">📖</div>
-            <h3>هنوز مقاله‌ای در این دسته منتشر نشده است</h3>
-            <p>
-                در بخش «${categoryName}» به‌زودی
-                مطالب تازه منتشر خواهد شد.
-            </p>
-            <a href="categories.html" class="btn btn-primary">
-                مشاهده همه دسته‌ها
-            </a>
-        `;
-
-        articlesSection.appendChild(message);
-
+    if (searchInput) {
+        searchInput.addEventListener(
+            "input",
+            updateSearch
+        );
     }
 
 
-    /* =====================================================
-       6. SMOOTH SCROLL
-       ===================================================== */
+    if (clearSearch) {
+        clearSearch.addEventListener("click", () => {
 
-    document.querySelectorAll('a[href^="#"]').forEach(
-        function (link) {
+            if (searchInput) {
+                searchInput.value = "";
+                searchInput.focus();
+            }
 
-            link.addEventListener(
-                "click",
-                function (event) {
-
-                    const targetId =
-                        this.getAttribute("href");
-
-                    if (
-                        !targetId ||
-                        targetId === "#"
-                    ) {
-                        return;
-                    }
-
-                    const target =
-                        document.querySelector(targetId);
-
-                    if (target) {
-
-                        event.preventDefault();
-
-                        target.scrollIntoView({
-                            behavior: "smooth",
-                            block: "start"
-                        });
-
-                    }
-
-                }
-            );
-
-        }
-    );
+            updateSearch();
+        });
+    }
 
 
-    /* =====================================================
-       7. NEWSLETTER DEMO
-       ===================================================== */
+    /* =========================
+       CATEGORY FILTERS
+    ========================== */
 
-    const newsletterForm =
-        document.querySelector(".newsletter-form");
+    const filterButtons =
+        document.querySelectorAll(".article-filter");
 
-    if (newsletterForm) {
+    filterButtons.forEach(button => {
 
-        newsletterForm.addEventListener(
-            "submit",
-            function (event) {
+        button.addEventListener("click", () => {
 
-                event.preventDefault();
+            const category =
+                button.dataset.category;
 
-                const emailInput =
-                    newsletterForm.querySelector(
-                        'input[type="email"]'
-                    );
+            const url =
+                new URL(window.location.href);
 
-                if (!emailInput) return;
-
-                const email =
-                    emailInput.value.trim();
-
-                if (!email) return;
-
-                alert(
-                    "عضویت شما با موفقیت ثبت شد.\n\n" +
-                    "این بخش در نسخه آزمایشی سایت قرار دارد."
+            if (!category || category === "all") {
+                url.searchParams.delete("category");
+            } else {
+                url.searchParams.set(
+                    "category",
+                    category
                 );
-
-                emailInput.value = "";
-
             }
-        );
 
-    }
+            window.history.pushState(
+                {},
+                "",
+                url
+            );
 
+            filterButtons.forEach(btn => {
+                btn.classList.remove("active");
+            });
 
-    /* =====================================================
-       8. CURRENT YEAR
-       ===================================================== */
+            button.classList.add("active");
 
-    document.querySelectorAll(".current-year").forEach(
-        function (element) {
-
-            element.textContent =
-                new Date().getFullYear();
-
-        }
-    );
-
-
-    /* =====================================================
-       9. ARTICLE SHARE
-       ===================================================== */
-
-    const shareButtons =
-        document.querySelectorAll("[data-share]");
-
-    shareButtons.forEach(function (button) {
-
-        button.addEventListener(
-            "click",
-            async function () {
-
-                const url =
-                    window.location.href;
-
-                const title =
-                    document.title;
-
-                if (
-                    navigator.share
-                ) {
-
-                    try {
-
-                        await navigator.share({
-                            title: title,
-                            url: url
-                        });
-
-                    } catch (error) {
-
-                        // کاربر پنجره اشتراک را بسته است.
-
-                    }
-
-                } else {
-
-                    try {
-
-                        await navigator.clipboard.writeText(url);
-
-                        alert(
-                            "لینک مقاله کپی شد."
-                        );
-
-                    } catch (error) {
-
-                        alert(
-                            "کپی لینک انجام نشد."
-                        );
-
-                    }
-
-                }
-
-            }
-        );
-
+            updateSearch();
+        });
     });
 
 
-    /* =====================================================
-       10. COPY LINK
-       ===================================================== */
+    /* =========================
+       SELECT CORRECT CATEGORY
+    ========================== */
 
-    const copyButtons =
-        document.querySelectorAll("[data-copy-link]");
+    const currentCategory =
+        new URLSearchParams(window.location.search)
+            .get("category");
 
-    copyButtons.forEach(function (button) {
+    if (filterButtons.length) {
 
-        button.addEventListener(
-            "click",
-            async function () {
+        filterButtons.forEach(button => {
 
-                try {
+            if (
+                currentCategory &&
+                button.dataset.category === currentCategory
+            ) {
+                button.classList.add("active");
+            }
+
+            if (
+                !currentCategory &&
+                button.dataset.category === "all"
+            ) {
+                button.classList.add("active");
+            }
+        });
+    }
+
+
+    updateSearch();
+
+
+    /* =========================
+       SMOOTH SCROLL
+    ========================== */
+
+    document.querySelectorAll('a[href^="#"]').forEach(link => {
+
+        link.addEventListener("click", event => {
+
+            const targetId =
+                link.getAttribute("href");
+
+            if (targetId === "#") return;
+
+            const target =
+                document.querySelector(targetId);
+
+            if (target) {
+                event.preventDefault();
+
+                target.scrollIntoView({
+                    behavior: "smooth",
+                    block: "start"
+                });
+            }
+        });
+    });
+
+
+    /* =========================
+       ARTICLE SHARE
+    ========================== */
+
+    const shareButtons =
+        document.querySelectorAll(".share-btn");
+
+    shareButtons.forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+            const shareData = {
+                title: document.title,
+                text: "این مقاله را در مجله اندیشه بخوانید.",
+                url: window.location.href
+            };
+
+            try {
+
+                if (navigator.share) {
+
+                    await navigator.share(
+                        shareData
+                    );
+
+                } else {
 
                     await navigator.clipboard.writeText(
                         window.location.href
                     );
 
-                    const oldText =
-                        button.textContent;
-
-                    button.textContent =
-                        "✓ لینک کپی شد";
-
-                    setTimeout(function () {
-
-                        button.textContent =
-                            oldText;
-
-                    }, 2000);
-
-                } catch (error) {
-
                     alert(
-                        "امکان کپی لینک وجود ندارد."
+                        "لینک مقاله کپی شد."
                     );
-
                 }
 
+            } catch (error) {
+                console.log(
+                    "اشتراک‌گذاری لغو شد."
+                );
             }
-        );
-
+        });
     });
 
 
-    /* =====================================================
-       11. EXTERNAL LINKS
-       ===================================================== */
+    /* =========================
+       COPY LINK
+    ========================== */
+
+    const copyButtons =
+        document.querySelectorAll(".copy-link");
+
+    copyButtons.forEach(button => {
+
+        button.addEventListener("click", async () => {
+
+            try {
+
+                await navigator.clipboard.writeText(
+                    window.location.href
+                );
+
+                const oldText =
+                    button.textContent;
+
+                button.textContent =
+                    "✓ لینک کپی شد";
+
+                setTimeout(() => {
+                    button.textContent =
+                        oldText;
+                }, 2000);
+
+            } catch (error) {
+
+                alert(
+                    "کپی لینک انجام نشد."
+                );
+            }
+        });
+    });
+
+
+    /* =========================
+       CURRENT YEAR
+    ========================== */
+
+    document.querySelectorAll(
+        "[data-current-year]"
+    ).forEach(element => {
+        element.textContent =
+            new Date().getFullYear();
+    });
+
+
+    /* =========================
+       EXTERNAL LINKS SECURITY
+    ========================== */
 
     document.querySelectorAll(
         'a[target="_blank"]'
-    ).forEach(function (link) {
+    ).forEach(link => {
 
-        link.setAttribute(
-            "rel",
-            "noopener noreferrer"
-        );
+        const rel =
+            link.getAttribute("rel") || "";
 
+        if (!rel.includes("noopener")) {
+            link.setAttribute(
+                "rel",
+                `${rel} noopener noreferrer`.trim()
+            );
+        }
     });
 
 });

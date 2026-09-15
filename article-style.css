@@ -1,19 +1,18 @@
-/* =========================================
-   ANDISHA — Professional Article System
-   Islamic / Intellectual Magazine
-========================================= */
+/* =========================================================
+   ANDISHA — Professional Article Design
+   Safe Version
+   ========================================================= */
 
 :root {
-    --green: #123c2f;
-    --green-2: #1d5b46;
-    --green-light: #eaf2ee;
-    --gold: #b58a3a;
-    --cream: #f8f5ed;
-    --white: #ffffff;
-    --black: #17201d;
-    --gray: #69736f;
-    --line: #e5e0d5;
-    --shadow: 0 18px 55px rgba(18, 60, 47, 0.10);
+    --article-green: #0d3b2e;
+    --article-green-light: #17634d;
+    --article-gold: #b08d32;
+    --article-cream: #f8f5ed;
+    --article-white: #ffffff;
+    --article-text: #242424;
+    --article-muted: #777;
+    --article-border: #e5e0d5;
+    --article-shadow: 0 15px 45px rgba(0, 0, 0, 0.08);
 }
 
 * {
@@ -26,551 +25,364 @@ html {
 
 body {
     margin: 0;
-    background: var(--cream);
-    color: var(--black);
-    font-family:
-        Tahoma,
-        "Segoe UI",
-        Arial,
-        sans-serif;
-    line-height: 2;
+    padding: 0;
+    background: var(--article-cream);
+    color: var(--article-text);
+    font-family: Tahoma, Arial, sans-serif;
+    line-height: 1.9;
 }
 
 /* =========================
    HEADER
-========================= */
+   ========================= */
 
 .article-header {
-    background: rgba(248, 245, 237, 0.96);
-    border-bottom: 1px solid var(--line);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-    backdrop-filter: blur(14px);
+    background: var(--article-green);
+    color: white;
+    border-bottom: 3px solid var(--article-gold);
 }
 
 .article-header-inner {
     width: min(1180px, 92%);
     margin: auto;
-    min-height: 78px;
-
+    min-height: 72px;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    gap: 30px;
+    gap: 25px;
 }
 
 .article-brand {
+    color: white;
     text-decoration: none;
-    display: flex;
-    align-items: center;
-    gap: 13px;
-}
-
-.article-brand-mark {
-    width: 42px;
-    height: 42px;
-    border: 1px solid var(--gold);
-    display: grid;
-    place-items: center;
-    color: var(--gold);
-    font-family: Georgia, serif;
-    font-size: 23px;
-}
-
-.article-brand-text {
-    display: flex;
-    flex-direction: column;
-    line-height: 1.1;
-}
-
-.article-brand-text strong {
-    color: var(--green);
-    font-size: 21px;
+    font-size: 28px;
+    font-weight: 800;
     letter-spacing: 2px;
-}
-
-.article-brand-text span {
-    color: var(--gray);
-    font-size: 10px;
-    margin-top: 4px;
 }
 
 .article-nav {
     display: flex;
     align-items: center;
-    gap: 24px;
+    gap: 22px;
 }
 
 .article-nav a {
-    color: var(--black);
+    color: white;
     text-decoration: none;
     font-size: 14px;
-    transition: 0.2s;
 }
 
 .article-nav a:hover {
-    color: var(--gold);
+    color: #e4c66d;
 }
 
 .article-theme-btn {
-    border: 1px solid var(--line);
+    border: 1px solid rgba(255,255,255,0.4);
     background: transparent;
-    color: var(--black);
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
+    color: white;
+    padding: 7px 12px;
+    border-radius: 8px;
     cursor: pointer;
 }
 
 /* =========================
-   ARTICLE HERO
-========================= */
+   HERO
+   ========================= */
 
 .article-hero {
     width: min(1180px, 92%);
-    margin: 55px auto 0;
+    margin: 55px auto 30px;
 }
 
 .article-meta-top {
     display: flex;
     align-items: center;
-    gap: 14px;
-    margin-bottom: 20px;
+    gap: 15px;
     flex-wrap: wrap;
+    color: var(--article-muted);
+    font-size: 13px;
+    margin-bottom: 18px;
 }
 
 .article-category {
-    display: inline-flex;
-    align-items: center;
-    gap: 7px;
-
-    color: var(--green);
-    background: var(--green-light);
-
-    padding: 6px 13px;
+    display: inline-block;
+    background: var(--article-green);
+    color: white;
+    padding: 5px 13px;
     border-radius: 30px;
-
-    font-size: 12px;
-    font-weight: bold;
-}
-
-.article-category::before {
-    content: "◆";
-    color: var(--gold);
-    font-size: 8px;
-}
-
-.article-date,
-.article-read-time {
-    color: var(--gray);
     font-size: 12px;
 }
 
 .article-title {
-    max-width: 920px;
     margin: 0;
-
-    color: var(--green);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        Tahoma,
-        serif;
-
-    font-size: clamp(38px, 5.2vw, 72px);
-    line-height: 1.22;
-    font-weight: 700;
-    letter-spacing: -1px;
+    color: var(--article-green);
+    font-size: clamp(34px, 5vw, 62px);
+    line-height: 1.3;
+    font-weight: 900;
 }
 
 .article-subtitle {
-    max-width: 800px;
-    margin: 22px 0 0;
-
-    color: #59635f;
-    font-size: 18px;
+    max-width: 850px;
+    margin: 18px 0 30px;
+    color: #666;
+    font-size: 19px;
     line-height: 2;
 }
 
 /* =========================
-   HERO IMAGE
-========================= */
+   COVER
+   ========================= */
 
 .article-cover {
-    margin-top: 45px;
-    height: min(570px, 55vw);
-    min-height: 330px;
-
-    position: relative;
-    overflow: hidden;
-    border-radius: 3px;
-
-    box-shadow: var(--shadow);
-}
-
-.article-cover img {
     width: 100%;
-    height: 100%;
+    max-height: 580px;
     object-fit: cover;
     display: block;
-
-    filter: saturate(0.8) contrast(0.96);
-}
-
-.article-cover::after {
-    content: "";
-    position: absolute;
-    inset: 0;
-
-    background:
-        linear-gradient(
-            180deg,
-            rgba(0, 0, 0, 0.02) 35%,
-            rgba(18, 60, 47, 0.72) 100%
-        );
+    border-radius: 18px;
+    box-shadow: var(--article-shadow);
 }
 
 .article-cover-caption {
-    position: absolute;
-    right: 35px;
-    bottom: 25px;
-    z-index: 2;
-
-    color: white;
-    font-size: 11px;
-    opacity: 0.85;
+    margin-top: 8px;
+    color: #888;
+    font-size: 12px;
+    text-align: center;
 }
 
 /* =========================
-   CONTENT LAYOUT
-========================= */
+   ARTICLE LAYOUT
+   ========================= */
 
 .article-layout {
-    width: min(1120px, 90%);
-    margin: 65px auto 100px;
-
+    width: min(1180px, 92%);
+    margin: 45px auto;
     display: grid;
-    grid-template-columns: minmax(0, 760px) 270px;
-    gap: 70px;
-
+    grid-template-columns: minmax(0, 1fr) 300px;
+    gap: 45px;
     align-items: start;
 }
 
 .article-content {
-    min-width: 0;
+    background: var(--article-white);
+    border-radius: 18px;
+    padding: clamp(25px, 5vw, 60px);
+    box-shadow: var(--article-shadow);
 }
 
-.article-lead {
-    color: var(--green);
-    font-size: 22px;
-    line-height: 2.15;
-    font-weight: 500;
+/* IMPORTANT:
+   Keep article text visible.
+*/
 
-    margin: 0 0 42px;
-
-    padding-right: 25px;
-    border-right: 3px solid var(--gold);
-}
-
-.article-content h2 {
-    position: relative;
-
-    color: var(--green);
-
-    font-family:
-        Georgia,
-        "Times New Roman",
-        Tahoma,
-        serif;
-
-    font-size: 31px;
-    line-height: 1.5;
-
-    margin: 65px 0 22px;
-    padding-right: 45px;
-}
-
-.article-content h2::before {
-    content: counter(section);
-    counter-increment: section;
-
-    position: absolute;
-    right: 0;
-    top: 2px;
-
-    width: 30px;
-    height: 30px;
-
-    display: grid;
-    place-items: center;
-
-    color: var(--gold);
-    border: 1px solid var(--gold);
-
-    font-family: Georgia, serif;
-    font-size: 13px;
-}
-
-.article-content {
-    counter-reset: section;
+.article-content,
+.article-content p,
+.article-content h1,
+.article-content h2,
+.article-content h3,
+.article-content li,
+.article-content blockquote,
+.article-content strong,
+.article-content span {
+    visibility: visible;
 }
 
 .article-content p {
-    color: #3f4844;
+    margin: 0 0 25px;
     font-size: 17px;
     line-height: 2.25;
-
-    margin: 0 0 24px;
+    color: var(--article-text);
 }
 
-.article-content strong {
-    color: var(--green);
+.article-content h2 {
+    margin: 55px 0 20px;
+    padding-right: 15px;
+    border-right: 4px solid var(--article-gold);
+    color: var(--article-green);
+    font-size: 27px;
+    line-height: 1.6;
+}
+
+.article-content h3 {
+    margin-top: 35px;
+    color: var(--article-green);
+    font-size: 21px;
 }
 
 .article-content ul,
 .article-content ol {
-    padding-right: 25px;
-    color: #3f4844;
-    font-size: 16px;
-    line-height: 2.2;
+    margin: 20px 0 30px;
+    padding-right: 30px;
 }
 
 .article-content li {
-    margin-bottom: 8px;
+    margin-bottom: 10px;
+    line-height: 2;
+}
+
+.article-lead {
+    font-size: 20px !important;
+    line-height: 2.2 !important;
+    font-weight: 600;
+    color: #333 !important;
+    border-right: 4px solid var(--article-gold);
+    padding-right: 20px;
+    margin-bottom: 35px !important;
 }
 
 /* =========================
    QURAN / HADITH BOX
-========================= */
+   ========================= */
 
 .source-box {
-    margin: 42px 0;
-    padding: 35px 35px 30px;
-
-    background: var(--white);
-    border-top: 4px solid var(--gold);
-
-    box-shadow: 0 12px 35px rgba(18, 60, 47, 0.07);
+    margin: 35px 0;
+    padding: 28px;
+    background: #f5f1e6;
+    border-right: 5px solid var(--article-green);
+    border-radius: 12px;
 }
 
 .source-label {
-    color: var(--gold);
-    font-size: 12px;
-    font-weight: bold;
-    letter-spacing: 0.5px;
-
-    margin-bottom: 18px;
+    color: var(--article-green);
+    font-weight: 800;
+    margin-bottom: 12px;
 }
 
 .source-arabic {
-    color: var(--green);
-
-    font-family:
-        "Traditional Arabic",
-        "Amiri",
-        Georgia,
-        serif;
-
-    font-size: 25px;
-    line-height: 2.1;
-
+    direction: rtl;
+    font-family: Georgia, serif;
+    font-size: 24px;
+    line-height: 2.2;
+    color: #172d25;
     margin-bottom: 18px;
 }
 
 .source-translation {
-    color: #505a55;
-    font-size: 15px;
+    font-size: 16px;
     line-height: 2;
+    color: #444;
 }
 
 .source-reference {
-    color: var(--gray);
-    font-size: 11px;
-    margin-top: 18px;
+    margin-top: 12px;
+    color: #777;
+    font-size: 13px;
 }
 
 /* =========================
    QUOTE
-========================= */
+   ========================= */
 
 .article-quote {
-    margin: 50px 0;
-
-    padding: 35px 40px;
-
-    background: var(--green);
-    color: white;
-
-    position: relative;
-}
-
-.article-quote::before {
-    content: "“";
-
-    position: absolute;
-    left: 25px;
-    top: -20px;
-
-    color: var(--gold);
-
-    font-family: Georgia, serif;
-    font-size: 90px;
-    line-height: 1;
-}
-
-.article-quote p {
-    color: white;
-    font-family: Georgia, Tahoma, serif;
-    font-size: 20px;
+    margin: 35px 0;
+    padding: 28px 32px;
+    background: #faf8f2;
+    border-right: 4px solid var(--article-gold);
+    border-radius: 12px;
+    font-size: 19px;
     line-height: 2;
-}
-
-.article-quote cite {
-    color: #d7c7a4;
-    font-size: 12px;
+    color: #333;
 }
 
 /* =========================
    SIDEBAR
-========================= */
+   ========================= */
 
 .article-sidebar {
     position: sticky;
-    top: 110px;
+    top: 25px;
 }
 
 .sidebar-box {
-    background: var(--white);
-    border-top: 2px solid var(--green);
+    background: white;
     padding: 25px;
-
-    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: var(--article-shadow);
+    margin-bottom: 22px;
 }
 
-.sidebar-title {
-    color: var(--green);
-
-    font-family: Georgia, Tahoma, serif;
-    font-size: 19px;
-
-    margin: 0 0 18px;
+.sidebar-box h3 {
+    margin-top: 0;
+    color: var(--article-green);
+    font-size: 18px;
 }
 
 .sidebar-list {
-    margin: 0;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 0;
 }
 
 .sidebar-list li {
-    border-bottom: 1px solid var(--line);
+    border-bottom: 1px solid var(--article-border);
     padding: 12px 0;
 }
 
 .sidebar-list li:last-child {
-    border-bottom: 0;
+    border-bottom: none;
 }
 
 .sidebar-list a {
-    color: #4a5550;
+    color: #333;
     text-decoration: none;
-    font-size: 13px;
-    line-height: 1.8;
 }
 
 .sidebar-list a:hover {
-    color: var(--gold);
-}
-
-/* =========================
-   AUTHOR / INFO
-========================= */
-
-.article-info {
-    margin-top: 50px;
-    padding-top: 25px;
-
-    border-top: 1px solid var(--line);
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 20px;
-
-    color: var(--gray);
-    font-size: 12px;
+    color: var(--article-green-light);
 }
 
 /* =========================
    TAGS
-========================= */
+   ========================= */
 
 .article-tags {
     display: flex;
     flex-wrap: wrap;
     gap: 8px;
-
-    margin-top: 35px;
+    margin: 35px 0;
 }
 
 .article-tag {
-    color: var(--green);
-    border: 1px solid #ccd8d1;
-    background: transparent;
-
+    background: #eee9dc;
+    color: var(--article-green);
     padding: 6px 12px;
     border-radius: 20px;
-
-    font-size: 11px;
+    font-size: 12px;
 }
 
 /* =========================
    SHARE
-========================= */
+   ========================= */
 
 .article-share {
     display: flex;
     flex-wrap: wrap;
     gap: 10px;
-    margin-top: 35px;
+    margin: 35px 0;
 }
 
 .article-share button {
-    border: 1px solid var(--line);
-    background: white;
-    color: var(--green);
-
-    padding: 9px 15px;
+    border: none;
+    background: var(--article-green);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 8px;
     cursor: pointer;
-
-    font-family: inherit;
-    font-size: 12px;
-
-    transition: 0.2s;
 }
 
 .article-share button:hover {
-    background: var(--green);
-    color: white;
+    background: var(--article-green-light);
 }
 
 /* =========================
    RELATED
-========================= */
+   ========================= */
 
 .related-section {
-    width: min(1120px, 90%);
-    margin: 0 auto 100px;
+    width: min(1180px, 92%);
+    margin: 60px auto;
 }
 
-.related-title {
-    color: var(--green);
-
-    font-family: Georgia, Tahoma, serif;
-    font-size: 32px;
-
+.related-section h2 {
+    color: var(--article-green);
     margin-bottom: 25px;
 }
 
@@ -582,251 +394,177 @@ body {
 
 .related-card {
     background: white;
-    border: 1px solid var(--line);
-    padding: 25px;
+    border-radius: 15px;
+    padding: 24px;
+    box-shadow: var(--article-shadow);
+}
 
+.related-card a {
+    color: var(--article-green);
     text-decoration: none;
-    color: inherit;
-
-    transition: 0.25s;
-}
-
-.related-card:hover {
-    transform: translateY(-4px);
-    box-shadow: var(--shadow);
-}
-
-.related-card small {
-    color: var(--gold);
-    font-size: 10px;
-}
-
-.related-card h3 {
-    color: var(--green);
-    font-family: Georgia, Tahoma, serif;
-    font-size: 20px;
-    line-height: 1.6;
-    margin: 12px 0 0;
+    font-weight: 700;
 }
 
 /* =========================
    SOURCES
-========================= */
+   ========================= */
 
 .article-sources {
-    width: min(1120px, 90%);
-    margin: 0 auto 90px;
-
-    background: #f0eee7;
-    padding: 35px;
+    margin-top: 50px;
+    padding-top: 30px;
+    border-top: 1px solid var(--article-border);
 }
 
-.article-sources h2 {
-    color: var(--green);
-    font-family: Georgia, Tahoma, serif;
-    margin-top: 0;
+.article-sources h3 {
+    color: var(--article-green);
 }
 
 .article-sources li {
-    color: #56605b;
-    font-size: 13px;
-    margin-bottom: 9px;
+    margin-bottom: 8px;
 }
 
 /* =========================
    FOOTER
-========================= */
+   ========================= */
 
 .article-footer {
-    background: var(--green);
+    margin-top: 80px;
+    padding: 45px 20px;
+    background: var(--article-green);
     color: white;
-
-    padding: 55px 5%;
+    text-align: center;
 }
 
-.article-footer-inner {
-    width: min(1120px, 100%);
-    margin: auto;
-
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 30px;
-}
-
-.article-footer strong {
-    font-family: Georgia, serif;
-    letter-spacing: 2px;
-}
-
-.article-footer p {
-    margin: 5px 0 0;
-    color: #c9d5d0;
-    font-size: 12px;
+.article-footer a {
+    color: white;
 }
 
 /* =========================
    DARK MODE
-========================= */
+   ========================= */
 
 body.dark-mode {
-    --cream: #101815;
-    --white: #17221e;
-    --black: #edf2ef;
-    --gray: #a9b5af;
-    --line: #2b3933;
-    --green-light: #1d342b;
+    --article-cream: #111714;
+    --article-white: #18211e;
+    --article-text: #eeeeee;
+    --article-muted: #aaa;
+    --article-border: #304039;
 }
 
-body.dark-mode .article-header {
-    background: rgba(16, 24, 21, 0.95);
-}
-
-body.dark-mode .article-nav a,
-body.dark-mode .article-theme-btn {
-    color: #edf2ef;
+body.dark-mode .article-title,
+body.dark-mode .article-content h2,
+body.dark-mode .article-content h3,
+body.dark-mode .sidebar-box h3,
+body.dark-mode .related-section h2 {
+    color: #d9c27a;
 }
 
 body.dark-mode .article-subtitle,
 body.dark-mode .article-content p,
-body.dark-mode .article-content ul,
-body.dark-mode .article-content ol {
-    color: #c0cbc6;
+body.dark-mode .article-content li {
+    color: #e5e5e5;
 }
 
-body.dark-mode .source-translation {
-    color: #c0cbc6;
+body.dark-mode .sidebar-box,
+body.dark-mode .related-card {
+    background: #18211e;
 }
 
-body.dark-mode .article-share button {
-    background: #17221e;
-    color: #dce7e2;
+body.dark-mode .source-box {
+    background: #202b26;
 }
 
-body.dark-mode .article-sources {
-    background: #17221e;
+body.dark-mode .source-arabic {
+    color: #f0e6c6;
+}
+
+body.dark-mode .source-translation,
+body.dark-mode .article-quote {
+    color: #ddd;
+}
+
+body.dark-mode .article-quote {
+    background: #202b26;
+}
+
+body.dark-mode .article-tag {
+    background: #27352f;
+    color: #e0cf91;
+}
+
+body.dark-mode .sidebar-list a {
+    color: #eee;
 }
 
 /* =========================
-   MOBILE
-========================= */
+   RESPONSIVE
+   ========================= */
 
-@media (max-width: 900px) {
+@media (max-width: 850px) {
 
     .article-header-inner {
-        min-height: 68px;
+        flex-direction: column;
+        padding: 18px 0;
     }
 
     .article-nav {
-        gap: 12px;
-    }
-
-    .article-nav a {
-        display: none;
-    }
-
-    .article-title {
-        font-size: clamp(34px, 9vw, 55px);
-    }
-
-    .article-cover {
-        height: 55vw;
-        min-height: 260px;
+        flex-wrap: wrap;
+        justify-content: center;
     }
 
     .article-layout {
         grid-template-columns: 1fr;
-        gap: 35px;
-        margin-top: 45px;
     }
 
     .article-sidebar {
         position: static;
-        order: 2;
     }
 
     .related-grid {
         grid-template-columns: 1fr;
     }
-}
 
-@media (max-width: 600px) {
-
-    .article-header-inner {
-        width: 94%;
-    }
-
-    .article-brand-text span {
-        display: none;
-    }
-
-    .article-hero {
-        width: 94%;
-        margin-top: 35px;
+    .article-content {
+        padding: 25px 20px;
     }
 
     .article-title {
         font-size: 36px;
-        letter-spacing: 0;
     }
 
     .article-subtitle {
-        font-size: 15px;
-    }
-
-    .article-cover {
-        margin-top: 30px;
-        height: 70vw;
-        min-height: 230px;
-    }
-
-    .article-layout {
-        width: 94%;
-    }
-
-    .article-lead {
-        font-size: 18px;
-        padding-right: 15px;
-    }
-
-    .article-content h2 {
-        font-size: 25px;
-        padding-right: 38px;
+        font-size: 16px;
     }
 
     .article-content p {
         font-size: 16px;
         line-height: 2.1;
     }
+}
+
+@media (max-width: 550px) {
+
+    .article-hero {
+        margin-top: 30px;
+    }
+
+    .article-title {
+        font-size: 30px;
+    }
+
+    .article-cover {
+        border-radius: 12px;
+    }
+
+    .article-content {
+        border-radius: 12px;
+    }
 
     .source-box {
-        padding: 25px 20px;
+        padding: 20px;
     }
 
     .source-arabic {
-        font-size: 22px;
-    }
-
-    .article-quote {
-        padding: 28px 25px;
-    }
-
-    .article-info {
-        align-items: flex-start;
-        flex-direction: column;
-    }
-
-    .article-sources {
-        width: 94%;
-        padding: 25px 20px;
-    }
-
-    .related-section {
-        width: 94%;
-    }
-
-    .article-footer-inner {
-        flex-direction: column;
-        align-items: flex-start;
+        font-size: 20px;
     }
 }

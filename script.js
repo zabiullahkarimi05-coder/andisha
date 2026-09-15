@@ -47,7 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
     });
 
 
-    // حفظ حالت انتخاب‌شده
     const savedTheme = localStorage.getItem("andisha-theme");
 
     if (savedTheme === "dark") {
@@ -58,8 +57,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 
     // ========================================
-    // SEARCH
-    // فقط در صفحه‌ای که لیست مقاله دارد
+    // PROFESSIONAL ARTICLE SEARCH
     // ========================================
 
     const articlesContainer =
@@ -78,11 +76,16 @@ document.addEventListener("DOMContentLoaded", function () {
         <input
             type="search"
             id="articleSearch"
-            placeholder="جست‌وجوی مقاله..."
+            placeholder="جست‌وجوی مقاله، موضوع یا کلمه..."
             autocomplete="off"
+            aria-label="جست‌وجوی مقاله"
         >
 
-        <button id="searchButton" type="button">
+        <button
+            id="searchButton"
+            type="button"
+            aria-label="جست‌وجو"
+        >
             🔎
         </button>
     `;
@@ -102,13 +105,30 @@ document.addEventListener("DOMContentLoaded", function () {
         document.getElementById("searchButton");
 
 
+    // نتیجه جست‌وجو
+    const searchResult =
+        document.createElement("div");
+
+    searchResult.className = "search-result";
+
+    articlesContainer.parentNode.insertBefore(
+        searchResult,
+        articlesContainer
+    );
+
+
     function searchArticles() {
 
         const query =
             searchInput.value.trim().toLowerCase();
 
         const articles =
-            document.querySelectorAll(".articles article");
+            document.querySelectorAll(
+                ".articles article"
+            );
+
+
+        let found = 0;
 
 
         articles.forEach(function (article) {
@@ -123,6 +143,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
                 article.style.display = "";
 
+                found++;
+
             } else {
 
                 article.style.display = "none";
@@ -130,6 +152,33 @@ document.addEventListener("DOMContentLoaded", function () {
             }
 
         });
+
+
+        // نمایش نتیجه
+        if (query === "") {
+
+            searchResult.innerHTML = "";
+
+        } else if (found === 0) {
+
+            searchResult.innerHTML = `
+                <div class="no-results">
+                    <strong>مقاله‌ای پیدا نشد.</strong>
+                    <p>
+                        کلمه دیگری را جست‌وجو کنید.
+                    </p>
+                </div>
+            `;
+
+        } else {
+
+            searchResult.innerHTML = `
+                <div class="results-count">
+                    ${found} مقاله پیدا شد
+                </div>
+            `;
+
+        }
 
     }
 
@@ -161,7 +210,9 @@ document.addEventListener("DOMContentLoaded", function () {
             function (event) {
 
                 if (event.key === "Enter") {
+
                     searchArticles();
+
                 }
 
             }

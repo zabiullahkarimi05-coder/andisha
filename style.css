@@ -1896,3 +1896,206 @@ body.dark-mode .newsletter-form input {
     }
 
 }
+/* ==========================================
+   PROFESSIONAL SEARCH
+   ========================================== */
+
+.professional-search {
+    width: min(900px, 92%);
+    margin: 0 auto 45px;
+}
+
+.search-inner {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background: #ffffff;
+    border: 1px solid #dfe7df;
+    border-radius: 18px;
+    padding: 8px 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
+}
+
+.search-icon {
+    font-size: 28px;
+    color: #18794e;
+}
+
+.search-inner input {
+    flex: 1;
+    border: none;
+    outline: none;
+    background: transparent;
+    font-family: inherit;
+    font-size: 16px;
+    padding: 13px 5px;
+    color: #183028;
+}
+
+.search-inner button {
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    color: #777;
+}
+
+.search-result-text {
+    text-align: center;
+    margin-top: 12px;
+    color: #777;
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   MOBILE MENU
+   ========================================== */
+
+.mobile-menu-btn {
+    display: none;
+    border: none;
+    background: transparent;
+    font-size: 28px;
+    cursor: pointer;
+    color: inherit;
+}
+
+
+/* ==========================================
+   DARK MODE SEARCH
+   ========================================== */
+
+.dark-mode .search-inner {
+    background: #17251f;
+    border-color: #30463c;
+}
+
+.dark-mode .search-inner input {
+    color: #f1f5f2;
+}
+
+.dark-mode .search-inner input::placeholder {
+    color: #aebdb5;
+}
+
+
+/* ==========================================
+   ARTICLE READING
+   ========================================== */
+
+.article-content {
+    line-height: 2.2;
+}
+
+.article-content p {
+    margin-bottom: 24px;
+}
+
+.article-content h2 {
+    margin-top: 45px;
+    margin-bottom: 18px;
+}
+
+
+/* ==========================================
+   404 PAGE
+   ========================================== */
+
+.error-page {
+    min-height: 65vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+}
+
+.error-number {
+    font-size: clamp(90px, 18vw, 180px);
+    line-height: 1;
+    font-weight: 900;
+    color: #18794e;
+    margin-bottom: 15px;
+}
+
+.error-page h1 {
+    font-size: 32px;
+    margin-bottom: 15px;
+}
+
+.error-page p {
+    color: #777;
+    max-width: 600px;
+    margin: 0 auto 30px;
+}
+
+
+/* ==========================================
+   MOBILE
+   ========================================== */
+
+@media (max-width: 768px) {
+
+    .mobile-menu-btn {
+        display: block;
+        margin-right: auto;
+    }
+
+    .main-nav {
+        display: none;
+        position: absolute;
+        top: 100%;
+        right: 0;
+        left: 0;
+        background: #ffffff;
+        padding: 20px;
+        flex-direction: column;
+        gap: 5px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        z-index: 999;
+    }
+
+    .main-nav.mobile-open {
+        display: flex;
+    }
+
+    .main-nav a {
+        display: block;
+        padding: 13px 15px;
+        border-radius: 10px;
+    }
+
+    .nav-wrap {
+        position: relative;
+    }
+
+    .dark-mode .main-nav {
+        background: #111a16;
+    }
+
+    .professional-search {
+        width: 90%;
+        margin-bottom: 30px;
+    }
+
+    .search-inner {
+        border-radius: 14px;
+    }
+
+    .search-inner input {
+        font-size: 14px;
+    }
+}
+
+
+/* ==========================================
+   ACCESSIBILITY
+   ========================================== */
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible {
+    outline: 3px solid rgba(24,121,78,.35);
+    outline-offset: 3px;
+}

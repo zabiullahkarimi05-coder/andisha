@@ -8,18 +8,21 @@
     <title>اندیشه | مجله‌ای برای فکر کردن</title>
 
     <meta name="description"
-        content="اندیشه؛ مجله‌ای برای فکر کردن درباره فلسفه، اسلام، جامعه، علم، تاریخ، فرهنگ، ادبیات و جهان.">
+        content="اندیشه؛ مجله‌ای اسلامی و فکری برای مطالعه، اندیشیدن و گفت‌وگو درباره اسلام، فلسفه، علم، تاریخ، جامعه، ادبیات و زندگی.">
 
     <meta name="keywords"
-        content="اندیشه, مجله, فلسفه, اسلام, علم, تاریخ, جامعه, ادبیات, افغانستان, فرهنگ">
+        content="اندیشه, مجله, اسلام, فلسفه, علم, تاریخ, ادبیات, روانشناسی, افغانستان, فرهنگ, جامعه">
 
-    <meta name="author" content="ANDISHA">
+    <meta name="author" content="مجله اندیشه">
+    <meta name="theme-color" content="#0f5132">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta property="og:title" content="اندیشه | مجله‌ای برای فکر کردن">
+    <meta property="og:description"
+        content="مجله‌ای اسلامی و فکری برای مطالعه، اندیشیدن و گفت‌وگو.">
+    <meta property="og:type" content="website">
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
+    <link rel="stylesheet"
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Noto+Sans+Arabic:wght@400;500;600;700;800&display=swap">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -39,30 +42,26 @@
 
             <nav class="main-nav">
 
-                <a href="index.html" class="active">
-                    خانه
-                </a>
+                <a href="index.html" class="active">خانه</a>
 
-                <a href="categories.html">
-                    دسته‌بندی‌ها
-                </a>
+                <a href="categories.html">موضوعات</a>
 
-                <a href="#articles">
-                    مقالات
-                </a>
+                <a href="#articles">مقالات</a>
 
-                <a href="about.html">
-                    درباره ما
-                </a>
+                <a href="about.html">درباره ما</a>
 
-                <a href="contact.html">
-                    تماس
-                </a>
+                <a href="contact.html">تماس</a>
 
             </nav>
 
-            <button id="darkModeToggle" class="dark-mode-btn" aria-label="تغییر حالت نمایش">
-                ◐
+            <button
+                id="darkModeToggle"
+                class="dark-mode-btn"
+                type="button"
+                aria-label="تغییر حالت نمایش">
+
+                ☾
+
             </button>
 
         </div>
@@ -70,14 +69,15 @@
     </header>
 
 
+    <!-- ================= HERO ================= -->
+
     <main>
-
-
-        <!-- ================= HERO ================= -->
 
         <section class="hero">
 
-            <div class="hero-background"></div>
+            <div class="hero-background"
+                style="background-image:url('https://images.unsplash.com/photo-1542816417-0983c9c9ad53?auto=format&fit=crop&w=1800&q=85');">
+            </div>
 
             <div class="hero-overlay"></div>
 
@@ -86,24 +86,24 @@
                 <div class="hero-content">
 
                     <span class="hero-label">
-                        ANDISHA / مجله فکری
+                        مجله اسلامی ـ فکری
                     </span>
 
                     <h1>
-                        برای آن‌که
-                        <span>بیشتر فکر کنیم.</span>
+                        اندیشه‌ای برای
+                        <br>
+                        فهمیدن، پرسیدن و بهتر زیستن
                     </h1>
 
                     <p>
-                        اندیشه جایی برای پرسیدن، خواندن و دوباره فکر کردن است؛
-                        از فلسفه و دین تا علم، تاریخ، جامعه، فرهنگ و زندگی انسان.
+                        اندیشه تلاش می‌کند میان دانش، ایمان، عقل و زندگی
+                        پلی بسازد؛ جایی برای خواندن، فکر کردن و گفت‌وگو.
                     </p>
 
                     <div class="hero-actions">
 
                         <a href="#articles" class="btn btn-primary">
-                            شروع خواندن
-                            <span>←</span>
+                            مطالعه مقالات
                         </a>
 
                         <a href="categories.html" class="btn btn-outline">
@@ -124,9 +124,12 @@
                     <div class="hero-side-line"></div>
 
                     <p>
-                        فکر کردن،
-                        آغاز فهمیدن است.
+                        «أَفَلَا تَعْقِلُونَ»
                     </p>
+
+                    <span>
+                        آیا نمی‌اندیشید؟
+                    </span>
 
                 </div>
 
@@ -135,8 +138,7 @@
         </section>
 
 
-
-        <!-- ================= FEATURED ================= -->
+        <!-- ================= FEATURED ARTICLE ================= -->
 
         <section class="section featured-section">
 
@@ -146,16 +148,16 @@
 
                     <div>
                         <span class="section-kicker">
-                            انتخاب امروز
+                            مقاله ویژه
                         </span>
 
                         <h2>
-                            مقاله ویژه
+                            برای آغاز یک گفت‌وگو
                         </h2>
                     </div>
 
-                    <a href="article.html" class="section-link">
-                        خواندن مقاله ←
+                    <a href="categories.html" class="section-link">
+                        همه موضوعات ←
                     </a>
 
                 </div>
@@ -166,53 +168,36 @@
                     <div class="featured-image">
 
                         <img
-                            src="https://images.unsplash.com/photo-1495020689067-958852a7765e?auto=format&fit=crop&w=1400&q=85"
+                            src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1400&q=85"
                             alt="کتاب و مطالعه">
 
                         <div class="featured-image-overlay"></div>
 
-                        <div class="featured-image-label">
-                            PHILOSOPHY
-                        </div>
+                        <span class="featured-image-label">
+                            فلسفه و اندیشه
+                        </span>
 
                     </div>
 
 
                     <div class="featured-content">
 
-                        <span class="article-category">
-                            فلسفه و اندیشه
-                        </span>
+                        <div class="featured-meta">
+                            فلسفه • ۸ دقیقه مطالعه
+                        </div>
 
                         <h3>
                             آزادی چیست؟
                         </h3>
 
                         <p>
-                            آیا انسان واقعاً آزاد است؟ آزادی تا کجا ادامه دارد
-                            و مرز آن با مسئولیت کجاست؟ نگاهی ساده و عمیق به یکی
-                            از مهم‌ترین پرسش‌های تاریخ اندیشه.
+                            آزادی تنها رهایی از محدودیت نیست؛
+                            بلکه توانایی انتخاب آگاهانه، پذیرفتن مسئولیت
+                            و شناخت مرز میان خواسته‌های فردی و خیر عمومی است.
                         </p>
 
-                        <div class="featured-meta">
-
-                            <span>
-                                ⏱ ۸ دقیقه مطالعه
-                            </span>
-
-                            <span>
-                                •
-                            </span>
-
-                            <span>
-                                اندیشه
-                            </span>
-
-                        </div>
-
-                        <a href="article.html" class="read-more">
-                            ادامه مقاله
-                            <span>←</span>
+                        <a href="article.html" class="card-link">
+                            ادامه مقاله ←
                         </a>
 
                     </div>
@@ -224,33 +209,26 @@
         </section>
 
 
+        <!-- ================= ARTICLES ================= -->
 
-        <!-- ================= LATEST ARTICLES ================= -->
-
-        <section class="section articles-section" id="articles">
+        <section class="section" id="articles">
 
             <div class="container">
 
                 <div class="section-heading">
 
                     <div>
-
                         <span class="section-kicker">
-                            تازه‌ترین نوشته‌ها
+                            تازه‌ترین مطالب
                         </span>
 
                         <h2>
-                            مقالات جدید
+                            چیزهایی برای فکر کردن
                         </h2>
-
-                        <p class="section-description">
-                            نوشته‌هایی درباره انسان، جامعه، علم، تاریخ و زندگی.
-                        </p>
-
                     </div>
 
                     <a href="categories.html" class="section-link">
-                        همه موضوعات ←
+                        مشاهده همه ←
                     </a>
 
                 </div>
@@ -259,36 +237,40 @@
                 <div class="articles">
 
 
-                    <!-- ARTICLE 1 -->
+                    <!-- Article 1 -->
 
-                    <article class="article-card" data-category="philosophy">
+                    <article class="article-card"
+                        data-category="philosophy">
 
-                        <div class="article-card-image">
+                        <a href="article.html">
 
-                            <img
-                                src="https://images.unsplash.com/photo-1505664194779-8beaceb93744?auto=format&fit=crop&w=900&q=80"
-                                alt="فلسفه و کتاب">
+                            <div class="article-card-image">
 
-                            <span class="image-category">
-                                فلسفه
-                            </span>
+                                <img
+                                    src="https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?auto=format&fit=crop&w=900&q=80"
+                                    alt="فلسفه و اندیشه">
 
-                        </div>
+                                <span class="image-category">
+                                    فلسفه
+                                </span>
+
+                            </div>
+
+                        </a>
 
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>فلسفه و اندیشه</span>
-                                <span>۶ دقیقه</span>
+                                فلسفه • ۶ دقیقه
                             </div>
 
                             <h3>
-                                انسان چرا به دنبال معنا می‌گردد؟
+                                انسان چرا به دنبال معناست؟
                             </h3>
 
                             <p>
-                                یکی از قدیمی‌ترین پرسش‌های انسان این است:
-                                زندگی چه معنایی دارد؟
+                                جست‌وجوی معنا یکی از عمیق‌ترین پرسش‌های
+                                انسان درباره زندگی و وجود خویش است.
                             </p>
 
                             <a href="article.html" class="card-link">
@@ -300,28 +282,31 @@
                     </article>
 
 
+                    <!-- Article 2 -->
 
-                    <!-- ARTICLE 2 -->
+                    <article class="article-card"
+                        data-category="islam">
 
-                    <article class="article-card" data-category="islam">
+                        <a href="article2.html">
 
-                        <div class="article-card-image">
+                            <div class="article-card-image">
 
-                            <img
-                                src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80"
-                                alt="کتاب و اندیشه اسلامی">
+                                <img
+                                    src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=900&q=80"
+                                    alt="قرآن و مطالعه">
 
-                            <span class="image-category">
-                                اسلام
-                            </span>
+                                <span class="image-category">
+                                    اسلام
+                                </span>
 
-                        </div>
+                            </div>
+
+                        </a>
 
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>اسلام و ادیان</span>
-                                <span>۷ دقیقه</span>
+                                اسلام • ۷ دقیقه
                             </div>
 
                             <h3>
@@ -329,8 +314,8 @@
                             </h3>
 
                             <p>
-                                عدالت، محبت، کرامت و صداقت چه جایگاهی
-                                در اندیشه اسلامی دارند؟
+                                کرامت، عدالت، صداقت، رحمت و مسئولیت؛
+                                ارزش‌هایی که در اخلاق اسلامی جایگاهی بنیادین دارند.
                             </p>
 
                             <a href="article2.html" class="card-link">
@@ -342,28 +327,31 @@
                     </article>
 
 
+                    <!-- Article 3 -->
 
-                    <!-- ARTICLE 3 -->
+                    <article class="article-card"
+                        data-category="history">
 
-                    <article class="article-card" data-category="history">
+                        <a href="article3.html">
 
-                        <div class="article-card-image">
+                            <div class="article-card-image">
 
-                            <img
-                                src="https://images.unsplash.com/photo-1461360228754-6e81c478b882?auto=format&fit=crop&w=900&q=80"
-                                alt="تمدن و تاریخ">
+                                <img
+                                    src="https://images.unsplash.com/photo-1564507592333-c60657eea523?auto=format&fit=crop&w=900&q=80"
+                                    alt="معماری تاریخی اسلامی">
 
-                            <span class="image-category">
-                                تاریخ
-                            </span>
+                                <span class="image-category">
+                                    تاریخ
+                                </span>
 
-                        </div>
+                            </div>
+
+                        </a>
 
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>تاریخ و تمدن</span>
-                                <span>۹ دقیقه</span>
+                                تاریخ • ۹ دقیقه
                             </div>
 
                             <h3>
@@ -371,8 +359,8 @@
                             </h3>
 
                             <p>
-                                از نخستین شهرها تا تمدن‌های بزرگ؛ انسان
-                                چگونه جوامع پیچیده ساخت؟
+                                از شهرها و دانش تا قانون و فرهنگ؛
+                                تمدن‌ها حاصل چه عواملی هستند؟
                             </p>
 
                             <a href="article3.html" class="card-link">
@@ -384,28 +372,31 @@
                     </article>
 
 
+                    <!-- Article 4 -->
 
-                    <!-- ARTICLE 4 -->
+                    <article class="article-card"
+                        data-category="literature">
 
-                    <article class="article-card" data-category="literature">
+                        <a href="article4.html">
 
-                        <div class="article-card-image">
+                            <div class="article-card-image">
 
-                            <img
-                                src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
-                                alt="نوشتن و ادبیات">
+                                <img
+                                    src="https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=900&q=80"
+                                    alt="نوشتن و ادبیات">
 
-                            <span class="image-category">
-                                ادبیات
-                            </span>
+                                <span class="image-category">
+                                    ادبیات
+                                </span>
 
-                        </div>
+                            </div>
+
+                        </a>
 
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>ادبیات و شعر</span>
-                                <span>۵ دقیقه</span>
+                                ادبیات • ۵ دقیقه
                             </div>
 
                             <h3>
@@ -413,8 +404,8 @@
                             </h3>
 
                             <p>
-                                شعر فقط کلمات زیبا نیست؛ گاهی زبانِ احساساتی
-                                است که زبان عادی نمی‌تواند بیان کند.
+                                شعر تنها مجموعه‌ای از واژه‌ها نیست؛
+                                گاهی راهی برای بیان عمیق‌ترین احساسات انسان است.
                             </p>
 
                             <a href="article4.html" class="card-link">
@@ -426,16 +417,16 @@
                     </article>
 
 
+                    <!-- Article 5 -->
 
-                    <!-- ARTICLE 5 -->
-
-                    <article class="article-card" data-category="science">
+                    <article class="article-card"
+                        data-category="science">
 
                         <div class="article-card-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1532094349884-543bc11b234d?auto=format&fit=crop&w=900&q=80"
-                                alt="علم و آزمایشگاه">
+                                alt="علم و دانش">
 
                             <span class="image-category">
                                 علم
@@ -446,8 +437,7 @@
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>علم و دانش</span>
-                                <span>۸ دقیقه</span>
+                                علم • ۸ دقیقه
                             </div>
 
                             <h3>
@@ -455,29 +445,29 @@
                             </h3>
 
                             <p>
-                                از کشف آتش تا هوش مصنوعی؛ مسیر شگفت‌انگیز
-                                دانش بشری را بررسی می‌کنیم.
+                                از مشاهده ساده طبیعت تا فناوری‌های پیچیده؛
+                                علم چگونه نگاه انسان به جهان را دگرگون کرده است؟
                             </p>
 
-                            <a href="#" class="card-link">
+                            <span class="card-link">
                                 به‌زودی ←
-                            </a>
+                            </span>
 
                         </div>
 
                     </article>
 
 
+                    <!-- Article 6 -->
 
-                    <!-- ARTICLE 6 -->
-
-                    <article class="article-card" data-category="psychology">
+                    <article class="article-card"
+                        data-category="psychology">
 
                         <div class="article-card-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?auto=format&fit=crop&w=900&q=80"
-                                alt="روانشناسی و تفکر">
+                                alt="روان‌شناسی و تفکر">
 
                             <span class="image-category">
                                 روان‌شناسی
@@ -488,22 +478,21 @@
                         <div class="article-card-content">
 
                             <div class="article-meta">
-                                <span>روان‌شناسی</span>
-                                <span>۷ دقیقه</span>
+                                روان‌شناسی • ۷ دقیقه
                             </div>
 
                             <h3>
-                                چرا افکار ما همیشه واقعیت نیستند؟
+                                چرا افکار ما بر زندگی ما اثر می‌گذارند؟
                             </h3>
 
                             <p>
-                                ذهن انسان چگونه واقعیت را تفسیر می‌کند
-                                و چرا گاهی ما را فریب می‌دهد؟
+                                شناخت افکار و عادت‌های ذهنی می‌تواند
+                                نخستین قدم برای شناخت بهتر خود باشد.
                             </p>
 
-                            <a href="#" class="card-link">
+                            <span class="card-link">
                                 به‌زودی ←
-                            </a>
+                            </span>
 
                         </div>
 
@@ -514,7 +503,6 @@
             </div>
 
         </section>
-
 
 
         <!-- ================= EDITOR'S CHOICE ================= -->
@@ -526,15 +514,13 @@
                 <div class="section-heading">
 
                     <div>
-
                         <span class="section-kicker">
-                            سردبیر پیشنهاد می‌کند
+                            انتخاب سردبیر
                         </span>
 
                         <h2>
-                            انتخاب سردبیر
+                            مطالبی که ارزش مکث دارند
                         </h2>
-
                     </div>
 
                 </div>
@@ -546,27 +532,18 @@
                     <article class="editor-main">
 
                         <img
-                            src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?auto=format&fit=crop&w=1400&q=85"
-                            alt="کتابخانه">
+                            src="https://images.unsplash.com/photo-1532012197267-da84d127e765?auto=format&fit=crop&w=1200&q=85"
+                            alt="کتاب و مطالعه">
 
                         <div class="editor-main-overlay">
 
                             <span>
-                                انتخاب سردبیر
+                                کتاب و اندیشه
                             </span>
 
                             <h3>
-                                کتاب‌ها چگونه ذهن انسان را تغییر می‌دهند؟
+                                مطالعه؛ گفت‌وگویی میان انسان و جهان
                             </h3>
-
-                            <p>
-                                یک کتاب خوب فقط اطلاعات نمی‌دهد؛
-                                گاهی نگاه انسان به جهان را تغییر می‌دهد.
-                            </p>
-
-                            <a href="#" class="read-more light">
-                                خواندن بیشتر ←
-                            </a>
 
                         </div>
 
@@ -575,64 +552,58 @@
 
                     <div class="editor-list">
 
-                        <article>
+                        <article class="editor-list-item">
 
                             <span class="editor-index">
                                 01
                             </span>
 
                             <div>
-
-                                <small>
-                                    جامعه و فرهنگ
-                                </small>
+                                <span>
+                                    اخلاق
+                                </span>
 
                                 <h3>
-                                    جامعه چگونه رفتار ما را شکل می‌دهد؟
+                                    اخلاق چه نقشی در زندگی انسان دارد؟
                                 </h3>
-
                             </div>
 
                         </article>
 
 
-                        <article>
+                        <article class="editor-list-item">
 
                             <span class="editor-index">
                                 02
                             </span>
 
                             <div>
-
-                                <small>
-                                    تکنولوژی
-                                </small>
+                                <span>
+                                    جامعه
+                                </span>
 
                                 <h3>
-                                    آینده انسان در عصر هوش مصنوعی
+                                    جامعه چگونه بر شخصیت ما اثر می‌گذارد؟
                                 </h3>
-
                             </div>
 
                         </article>
 
 
-                        <article>
+                        <article class="editor-list-item">
 
                             <span class="editor-index">
                                 03
                             </span>
 
                             <div>
-
-                                <small>
-                                    افغانستان
-                                </small>
+                                <span>
+                                    اندیشه
+                                </span>
 
                                 <h3>
-                                    افغانستان؛ سرزمین تاریخ و روایت
+                                    آیا همیشه باید با اکثریت موافق باشیم؟
                                 </h3>
-
                             </div>
 
                         </article>
@@ -644,7 +615,6 @@
             </div>
 
         </section>
-
 
 
         <!-- ================= DEEP READING ================= -->
@@ -656,15 +626,13 @@
                 <div class="section-heading">
 
                     <div>
-
                         <span class="section-kicker">
-                            برای مطالعه عمیق
+                            مطالعه عمیق
                         </span>
 
                         <h2>
-                            کمی بیشتر فکر کن
+                            برای خواندن با حوصله
                         </h2>
-
                     </div>
 
                 </div>
@@ -676,22 +644,18 @@
                     <article class="deep-card">
 
                         <img
-                            src="https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1000&q=80"
-                            alt="طبیعت و تفکر">
+                            src="https://images.unsplash.com/photo-1495446815901-a7297e633e8d?auto=format&fit=crop&w=900&q=80"
+                            alt="کتاب">
 
                         <div>
 
                             <span>
-                                فلسفه
+                                کتاب
                             </span>
 
                             <h3>
-                                تنهایی؛ دشمن انسان یا فرصت شناخت خود؟
+                                چرا کتاب‌ها هنوز اهمیت دارند؟
                             </h3>
-
-                            <a href="#">
-                                بیشتر بخوانید ←
-                            </a>
 
                         </div>
 
@@ -701,22 +665,18 @@
                     <article class="deep-card">
 
                         <img
-                            src="https://images.unsplash.com/photo-1470071459604-3b5ec3a7fe05?auto=format&fit=crop&w=1000&q=80"
-                            alt="طبیعت">
+                            src="https://images.unsplash.com/photo-1455885666463-2f2c3f5e7d4b?auto=format&fit=crop&w=900&q=80"
+                            alt="نوشتن">
 
                         <div>
 
                             <span>
-                                انسان و طبیعت
+                                ادبیات
                             </span>
 
                             <h3>
-                                رابطه انسان با طبیعت در دنیای مدرن
+                                نوشتن چگونه ذهن انسان را تغییر می‌دهد؟
                             </h3>
-
-                            <a href="#">
-                                بیشتر بخوانید ←
-                            </a>
 
                         </div>
 
@@ -726,22 +686,18 @@
                     <article class="deep-card">
 
                         <img
-                            src="https://images.unsplash.com/photo-1531058020387-3be344556be6?auto=format&fit=crop&w=1000&q=80"
-                            alt="هنر">
+                            src="https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&w=900&q=80"
+                            alt="مطالعه و تفکر">
 
                         <div>
 
                             <span>
-                                هنر
+                                اندیشه
                             </span>
 
                             <h3>
-                                هنر چرا برای انسان ضروری است؟
+                                خلوت، سکوت و فرصت اندیشیدن
                             </h3>
-
-                            <a href="#">
-                                بیشتر بخوانید ←
-                            </a>
 
                         </div>
 
@@ -752,7 +708,6 @@
             </div>
 
         </section>
-
 
 
         <!-- ================= TOPICS ================= -->
@@ -764,19 +719,17 @@
                 <div class="section-heading">
 
                     <div>
-
                         <span class="section-kicker">
-                            جهان اندیشه
+                            موضوعات
                         </span>
 
                         <h2>
-                            موضوعات
+                            از هر موضوعی برای اندیشیدن
                         </h2>
-
                     </div>
 
                     <a href="categories.html" class="section-link">
-                        مشاهده همه ←
+                        همه موضوعات ←
                     </a>
 
                 </div>
@@ -784,124 +737,44 @@
 
                 <div class="topics-grid">
 
+                    <a href="index.html?category=islam" class="topic-card">
+                        <span>۰۱</span>
+                        <strong>اسلام و ادیان</strong>
+                    </a>
 
                     <a href="index.html?category=philosophy" class="topic-card">
-
-                        <span>01</span>
-
-                        <strong>
-                            فلسفه و اندیشه
-                        </strong>
-
-                        <small>
-                            پرسش‌های بزرگ انسان
-                        </small>
-
+                        <span>۰۲</span>
+                        <strong>فلسفه و اندیشه</strong>
                     </a>
-
-
-                    <a href="index.html?category=islam" class="topic-card">
-
-                        <span>02</span>
-
-                        <strong>
-                            اسلام و ادیان
-                        </strong>
-
-                        <small>
-                            دین، معنویت و انسان
-                        </small>
-
-                    </a>
-
 
                     <a href="index.html?category=science" class="topic-card">
-
-                        <span>03</span>
-
-                        <strong>
-                            علم و دانش
-                        </strong>
-
-                        <small>
-                            کشف جهان
-                        </small>
-
+                        <span>۰۳</span>
+                        <strong>علم و دانش</strong>
                     </a>
-
 
                     <a href="index.html?category=history" class="topic-card">
-
-                        <span>04</span>
-
-                        <strong>
-                            تاریخ و تمدن
-                        </strong>
-
-                        <small>
-                            گذشته‌ای که هنوز زنده است
-                        </small>
-
+                        <span>۰۴</span>
+                        <strong>تاریخ و تمدن</strong>
                     </a>
 
-
-                    <a href="index.html?category=social-science" class="topic-card">
-
-                        <span>05</span>
-
-                        <strong>
-                            جامعه
-                        </strong>
-
-                        <small>
-                            انسان در کنار انسان
-                        </small>
-
+                    <a href="index.html?category=psychology" class="topic-card">
+                        <span>۰۵</span>
+                        <strong>روان‌شناسی</strong>
                     </a>
-
 
                     <a href="index.html?category=literature" class="topic-card">
-
-                        <span>06</span>
-
-                        <strong>
-                            ادبیات و شعر
-                        </strong>
-
-                        <small>
-                            زبان احساس و خیال
-                        </small>
-
+                        <span>۰۶</span>
+                        <strong>ادبیات و شعر</strong>
                     </a>
 
-
-                    <a href="index.html?category=technology" class="topic-card">
-
-                        <span>07</span>
-
-                        <strong>
-                            تکنولوژی
-                        </strong>
-
-                        <small>
-                            آینده‌ای که می‌رسد
-                        </small>
-
+                    <a href="index.html?category=ethics" class="topic-card">
+                        <span>۰۷</span>
+                        <strong>اخلاق و ارزش‌ها</strong>
                     </a>
 
-
-                    <a href="index.html?category=afghanistan" class="topic-card">
-
-                        <span>08</span>
-
-                        <strong>
-                            افغانستان
-                        </strong>
-
-                        <small>
-                            تاریخ، جامعه و آینده
-                        </small>
-
+                    <a href="categories.html" class="topic-card">
+                        <span>۲۵+</span>
+                        <strong>همه موضوعات</strong>
                     </a>
 
                 </div>
@@ -911,65 +784,61 @@
         </section>
 
 
-
-        <!-- ================= ABOUT MAGAZINE ================= -->
+        <!-- ================= ABOUT ================= -->
 
         <section class="section about-magazine">
 
             <div class="container about-magazine-inner">
 
-                <div class="about-magazine-title">
+                <div>
 
                     <span class="section-kicker">
                         درباره اندیشه
                     </span>
 
-                    <h2>
-                        یک مجله،
-                        <br>
-                        برای ذهن‌های کنجکاو.
+                    <h2 class="about-magazine-title">
+                        جایی برای پرسیدن،
+                        یاد گرفتن و بهتر فهمیدن.
                     </h2>
 
                 </div>
 
 
-                <div class="about-magazine-text">
+                <div>
 
-                    <p>
-                        اندیشه تلاش می‌کند درباره موضوعاتی بنویسد که
-                        ارزش فکر کردن دارند؛ بدون آن‌که مخاطب را مجبور
-                        کند چگونه فکر کند.
+                    <p class="about-magazine-text">
+
+                        «اندیشه» یک مجله اسلامی و فکری است که
+                        تلاش می‌کند موضوعات گوناگون زندگی انسان را
+                        با نگاهی علمی، اخلاقی، عقلانی و اسلامی بررسی کند.
+
                     </p>
+
 
                     <div class="about-points">
 
-                        <div>
-                            <strong>01</strong>
-                            <span>نگاه عمیق</span>
+                        <div class="about-point">
+                            <strong>ایمان</strong>
+                            <span>در کنار عقل و دانش</span>
                         </div>
 
-                        <div>
-                            <strong>02</strong>
-                            <span>زبان ساده</span>
+                        <div class="about-point">
+                            <strong>دانش</strong>
+                            <span>برای فهم بهتر جهان</span>
                         </div>
 
-                        <div>
-                            <strong>03</strong>
-                            <span>موضوعات متنوع</span>
+                        <div class="about-point">
+                            <strong>گفت‌وگو</strong>
+                            <span>برای شنیدن دیدگاه‌های متفاوت</span>
                         </div>
 
                     </div>
-
-                    <a href="about.html" class="btn btn-primary">
-                        بیشتر درباره اندیشه ←
-                    </a>
 
                 </div>
 
             </div>
 
         </section>
-
 
 
         <!-- ================= NEWSLETTER ================= -->
@@ -983,29 +852,30 @@
                     <div>
 
                         <span class="section-kicker">
-                            نامه اندیشه
+                            همراه اندیشه باشید
                         </span>
 
                         <h2>
-                            نوشته‌های تازه را از دست نده.
+                            مطالب تازه را از دست ندهید.
                         </h2>
 
                         <p>
-                            مقاله‌های منتخب و نوشته‌های تازه اندیشه را
-                            در ایمیل خود دریافت کن.
+                            برای دریافت مقالات جدید اندیشه
+                            ایمیل خود را وارد کنید.
                         </p>
 
                     </div>
 
 
-                    <form class="newsletter-form" onsubmit="return false;">
+                    <form class="newsletter-form">
 
                         <input
                             type="email"
                             placeholder="ایمیل شما"
-                            aria-label="ایمیل">
+                            aria-label="ایمیل شما"
+                            required>
 
-                        <button type="submit">
+                        <button type="submit" class="btn btn-primary">
                             عضویت
                         </button>
 
@@ -1020,7 +890,6 @@
     </main>
 
 
-
     <!-- ================= FOOTER ================= -->
 
     <footer class="site-footer">
@@ -1030,15 +899,21 @@
 
             <div class="footer-brand">
 
-                <div class="logo">
-                    <span class="logo-main">ANDISHA</span>
+                <a href="index.html" class="logo">
+
+                    <span class="logo-main">
+                        ANDISHA
+                    </span>
+
                     <span class="logo-sub">
                         مجله‌ای برای فکر کردن
                     </span>
-                </div>
+
+                </a>
 
                 <p>
-                    برای خواندن، پرسیدن و دوباره فکر کردن.
+                    مجله‌ای اسلامی، علمی و فکری
+                    برای انسان امروز.
                 </p>
 
             </div>
@@ -1046,58 +921,70 @@
 
             <div class="footer-column">
 
-                <h4>
-                    مجله
-                </h4>
+                <h3>
+                    دسترسی سریع
+                </h3>
 
                 <a href="index.html">
                     خانه
                 </a>
 
                 <a href="categories.html">
-                    دسته‌بندی‌ها
+                    موضوعات
                 </a>
 
                 <a href="about.html">
                     درباره ما
                 </a>
 
+                <a href="contact.html">
+                    تماس با ما
+                </a>
+
             </div>
 
 
             <div class="footer-column">
 
-                <h4>
-                    اطلاعات
-                </h4>
+                <h3>
+                    موضوعات
+                </h3>
 
-                <a href="contact.html">
-                    تماس با ما
+                <a href="index.html?category=islam">
+                    اسلام
                 </a>
+
+                <a href="index.html?category=philosophy">
+                    فلسفه
+                </a>
+
+                <a href="index.html?category=science">
+                    علم
+                </a>
+
+                <a href="index.html?category=literature">
+                    ادبیات
+                </a>
+
+            </div>
+
+
+            <div class="footer-column">
+
+                <h3>
+                    اطلاعات
+                </h3>
 
                 <a href="privacy.html">
                     حریم خصوصی
                 </a>
 
-            </div>
-
-
-            <div class="footer-column">
-
-                <h4>
-                    دنبال کنید
-                </h4>
-
-                <a href="#">
-                    Instagram
+                <a href="contact.html">
+                    ارتباط با ما
                 </a>
 
-                <a href="#">
-                    Telegram
-                </a>
-
-                <a href="#">
-                    Facebook
+                <a href="categories.html">
+                    فهرست موضوعات
                 </a>
 
             </div>
@@ -1108,11 +995,12 @@
         <div class="container footer-bottom">
 
             <span>
-                © 2026 ANDISHA
+                © <span id="currentYear"></span>
+                ANDISHA
             </span>
 
             <span>
-                ساخته شده برای فکر کردن.
+                ساخته شده برای اندیشیدن
             </span>
 
         </div>
@@ -1120,28 +1008,33 @@
     </footer>
 
 
+    <!-- ================= SCRIPTS ================= -->
 
     <script src="script.js"></script>
 
 
     <script>
 
-        /* Smooth scrolling */
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(function (link) {
 
-        document.querySelectorAll('a[href^="#"]').forEach(link => {
+            link.addEventListener('click', function (event) {
 
-            link.addEventListener("click", function (e) {
+                const targetId = this.getAttribute('href');
 
-                const target = document.querySelector(
-                    this.getAttribute("href")
-                );
+                if (targetId === '#') {
+                    return;
+                }
+
+                const target = document.querySelector(targetId);
 
                 if (target) {
 
-                    e.preventDefault();
+                    event.preventDefault();
 
                     target.scrollIntoView({
-                        behavior: "smooth"
+                        behavior: 'smooth',
+                        block: 'start'
                     });
 
                 }
@@ -1151,33 +1044,42 @@
         });
 
 
-        /* Newsletter demo */
-
+        // Newsletter demo
         const newsletterForm =
-            document.querySelector(".newsletter-form");
+            document.querySelector('.newsletter-form');
 
         if (newsletterForm) {
 
-            newsletterForm.addEventListener("submit", function () {
+            newsletterForm.addEventListener('submit', function (event) {
 
-                const input =
-                    newsletterForm.querySelector("input");
+                event.preventDefault();
 
-                if (!input.value.trim()) {
+                const emailInput =
+                    newsletterForm.querySelector('input[type="email"]');
 
-                    alert("لطفاً ایمیل خود را وارد کنید.");
-
+                if (!emailInput.value.trim()) {
                     return;
-
                 }
 
                 alert(
-                    "عضویت شما با موفقیت ثبت شد. این بخش در نسخه آینده به سیستم واقعی ایمیل متصل می‌شود."
+                    'سپاسگزاریم! عضویت شما با موفقیت ثبت شد.'
                 );
 
-                input.value = "";
+                newsletterForm.reset();
 
             });
+
+        }
+
+
+        // Current year
+        const yearElement =
+            document.getElementById('currentYear');
+
+        if (yearElement) {
+
+            yearElement.textContent =
+                new Date().getFullYear();
 
         }
 

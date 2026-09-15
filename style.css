@@ -1811,3 +1811,88 @@ body.dark-mode .newsletter-form input {
         padding: 25px 18px;
     }
 }
+/* =========================
+   ARTICLE COVER
+   ========================= */
+
+.article-cover {
+    width: 100%;
+    margin: 0 0 50px;
+    overflow: hidden;
+    border-radius: 22px;
+    box-shadow: var(--shadow);
+}
+
+.article-cover img {
+    width: 100%;
+    height: 480px;
+    object-fit: cover;
+    transition: 0.6s ease;
+}
+
+.article-cover:hover img {
+    transform: scale(1.025);
+}
+
+
+/* =========================
+   ARTICLE QUOTE BOX
+   ========================= */
+
+.article-quote-box {
+    position: relative;
+
+    margin: 45px 0;
+    padding: 40px 45px;
+
+    border: 1px solid rgba(181, 138, 43, 0.25);
+    border-right: 4px solid var(--gold-500);
+    border-radius: 16px;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(13, 98, 72, 0.07),
+            rgba(201, 165, 74, 0.08)
+        );
+}
+
+.article-quote-box p {
+    margin: 0;
+    color: var(--green-900);
+    font-size: 21px;
+    line-height: 2;
+    font-weight: 700;
+}
+
+.article-quote-mark {
+    position: absolute;
+    top: -20px;
+    right: 25px;
+
+    color: var(--gold-500);
+    font-family: Georgia, serif;
+    font-size: 75px;
+    line-height: 1;
+}
+
+
+/* =========================
+   ARTICLE MOBILE
+   ========================= */
+
+@media (max-width: 700px) {
+
+    .article-cover img {
+        height: 280px;
+    }
+
+    .article-quote-box {
+        padding: 30px 25px;
+    }
+
+    .article-quote-box p {
+        font-size: 17px;
+    }
+
+}

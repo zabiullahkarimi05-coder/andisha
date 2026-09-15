@@ -521,3 +521,79 @@ body.dark-mode .article-page .back {
     border-color: var(--gold);
     color: var(--gold);
 }
+/* ========================================
+   PROFESSIONAL SEARCH RESULTS
+======================================== */
+
+.search-result {
+    width: 100%;
+    margin: -20px 0 25px;
+}
+
+.results-count {
+    display: inline-block;
+    background: #111;
+    color: white;
+    padding: 7px 16px;
+    font-size: 13px;
+    font-weight: 600;
+    border-radius: 30px;
+}
+
+.no-results {
+    background: white;
+    border: 1px solid var(--border);
+    padding: 35px;
+    text-align: center;
+}
+
+.no-results strong {
+    display: block;
+    font-size: 20px;
+    margin-bottom: 8px;
+}
+
+.no-results p {
+    color: var(--gray);
+    margin: 0;
+}
+
+/* SEARCH INPUT */
+
+.search-box input {
+    border-radius: 3px;
+    transition: 0.25s;
+}
+
+.search-box input:focus {
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.12);
+}
+
+.search-box button {
+    border-radius: 3px;
+    transition: 0.25s;
+}
+
+.search-box button:hover {
+    border-color: var(--gold);
+}
+
+/* DARK MODE SEARCH */
+
+body.dark-mode .results-count {
+    background: var(--gold);
+    color: #111;
+}
+
+body.dark-mode .no-results {
+    background: #1b1b1b;
+    border-color: #333;
+}
+
+body.dark-mode .no-results strong {
+    color: #eee;
+}
+
+body.dark-mode .no-results p {
+    color: #aaa;
+}

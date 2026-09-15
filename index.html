@@ -6,19 +6,97 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>اندیشه | مجله‌ای برای فکر کردن</title>
+    <!-- ================= SEO ================= -->
+
+    <title>اندیشه | مجله اسلامی، علمی و فرهنگی</title>
 
     <meta name="description"
-        content="اندیشه؛ مجله‌ای اسلامی، علمی و فرهنگی برای اندیشیدن درباره انسان، جامعه، علم، تاریخ، فلسفه و تمدن.">
+        content="مجله اندیشه؛ رسانه‌ای برای مطالعه و اندیشیدن درباره اسلام، قرآن، حدیث، فلسفه، علم، تاریخ، تمدن، جامعه، فرهنگ، اخلاق و انسان.">
 
     <meta name="keywords"
-        content="اندیشه, مجله, اسلام, فلسفه, علم, فرهنگ, تاریخ, تمدن, افغانستان, جامعه">
+        content="اندیشه, مجله اندیشه, مجله اسلامی, مجله علمی, مجله فرهنگی, اسلام, قرآن, حدیث, فلسفه, علم, تاریخ, تمدن, فرهنگ, جامعه, اخلاق, افغانستان">
 
-    <meta property="og:title" content="اندیشه | مجله‌ای برای فکر کردن">
-    <meta property="og:description" content="مجله‌ای برای فکر کردن، آموختن و بهتر دیدن جهان.">
+    <meta name="author" content="مجله اندیشه">
+
+    <meta name="robots" content="index, follow">
+
+    <meta name="googlebot" content="index, follow">
+
+    <meta name="language" content="fa">
+
+    <meta name="theme-color" content="#0b3d32">
+
+    <link
+        rel="canonical"
+        href="https://zabiullahkarimi05-coder.github.io/andisha/">
+
+    <!-- ================= OPEN GRAPH ================= -->
+
+    <meta property="og:locale" content="fa_AF">
+
     <meta property="og:type" content="website">
 
-    <!-- Persian / Arabic typography -->
+    <meta property="og:site_name" content="اندیشه">
+
+    <meta property="og:title"
+        content="اندیشه | مجله اسلامی، علمی و فرهنگی">
+
+    <meta property="og:description"
+        content="مجله‌ای برای فکر کردن، آموختن و بهتر دیدن جهان؛ با نگاهی به اسلام، قرآن، علم، فلسفه، تاریخ، فرهنگ و جامعه.">
+
+    <meta property="og:url"
+        content="https://zabiullahkarimi05-coder.github.io/andisha/">
+
+    <meta property="og:image"
+        content="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85">
+
+    <meta property="og:image:alt"
+        content="قرآن و کتاب در فضای مطالعه">
+
+    <!-- ================= TWITTER ================= -->
+
+    <meta name="twitter:card" content="summary_large_image">
+
+    <meta name="twitter:title"
+        content="اندیشه | مجله اسلامی، علمی و فرهنگی">
+
+    <meta name="twitter:description"
+        content="اندیشه؛ مجله‌ای برای فکر کردن درباره اسلام، قرآن، علم، فلسفه، تاریخ، فرهنگ و جامعه.">
+
+    <meta name="twitter:image"
+        content="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85">
+
+    <!-- ================= FAVICON ================= -->
+
+    <link rel="icon" href="favicon.svg" type="image/svg+xml">
+
+    <!-- ================= STRUCTURED DATA ================= -->
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "اندیشه",
+        "alternateName": "ANDISHA",
+        "url": "https://zabiullahkarimi05-coder.github.io/andisha/",
+        "description": "مجله‌ای اسلامی، علمی و فرهنگی برای فکر کردن، آموختن و بهتر دیدن جهان.",
+        "inLanguage": "fa"
+    }
+    </script>
+
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "مجله اندیشه",
+        "alternateName": "ANDISHA",
+        "url": "https://zabiullahkarimi05-coder.github.io/andisha/",
+        "description": "مجله‌ای برای اندیشیدن درباره اسلام، قرآن، علم، فلسفه، تاریخ، فرهنگ، جامعه و انسان."
+    }
+    </script>
+
+    <!-- ================= FONTS ================= -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
@@ -51,6 +129,10 @@
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
             margin: 0;
             background: var(--premium-paper);
@@ -65,6 +147,10 @@
 
         a {
             text-decoration: none;
+        }
+
+        img {
+            max-width: 100%;
         }
 
         /* ---------------- HEADER ---------------- */
@@ -172,6 +258,7 @@
 
             background: transparent;
             cursor: pointer;
+
             font-size: 20px;
         }
 
@@ -963,14 +1050,21 @@
 
         <div class="premium-header-inner">
 
-            <a href="index.html" class="premium-logo">
+            <a href="index.html"
+                class="premium-logo"
+                aria-label="اندیشه - صفحه اصلی">
+
                 <span class="premium-logo-en">ANDISHA</span>
+
                 <span class="premium-logo-fa">
                     مجله‌ای برای فکر کردن
                 </span>
+
             </a>
 
-            <nav class="premium-nav">
+
+            <nav class="premium-nav"
+                aria-label="منوی اصلی">
 
                 <a href="index.html">خانه</a>
 
@@ -984,9 +1078,11 @@
 
             </nav>
 
+
             <div class="premium-actions">
 
                 <button
+                    type="button"
                     class="premium-theme"
                     onclick="toggleDarkMode()"
                     aria-label="تغییر حالت تاریک">
@@ -994,9 +1090,10 @@
                 </button>
 
                 <button
+                    type="button"
                     class="premium-mobile"
                     onclick="toggleMobileMenu()"
-                    aria-label="منوی موبایل">
+                    aria-label="باز کردن منوی موبایل">
                     ☰
                 </button>
 
@@ -1060,7 +1157,8 @@
                         <img
                             src="https://images.unsplash.com/photo-1609599006353-e629aaabfeae?auto=format&fit=crop&w=1200&q=85"
                             alt="قرآن و کتاب در فضای مطالعه"
-                            loading="eager">
+                            loading="eager"
+                            decoding="async">
 
                         <div class="premium-image-overlay"></div>
 
@@ -1118,7 +1216,8 @@
                     <img
                         src="https://images.unsplash.com/photo-1516979187457-637abb4f9353?auto=format&fit=crop&w=1200&q=85"
                         alt="کتاب و مطالعه"
-                        loading="lazy">
+                        loading="lazy"
+                        decoding="async">
 
                 </div>
 
@@ -1141,7 +1240,8 @@
 
                     <a
                         href="article5.html"
-                        class="premium-btn">
+                        class="premium-btn"
+                        aria-label="خواندن مقاله انسان چرا به دنبال معناست">
                         خواندن مقاله
                     </a>
 
@@ -1184,14 +1284,16 @@
 
                 <article class="premium-card">
 
-                    <a href="article.html">
+                    <a href="article.html"
+                        aria-label="خواندن مقاله آزادی چیست">
 
                         <div class="premium-card-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1518709594023-6eab9bab7b23?auto=format&fit=crop&w=900&q=80"
                                 alt="آزادی و اندیشه"
-                                loading="lazy">
+                                loading="lazy"
+                                decoding="async">
 
                         </div>
 
@@ -1225,14 +1327,16 @@
 
                 <article class="premium-card">
 
-                    <a href="article2.html">
+                    <a href="article2.html"
+                        aria-label="خواندن مقاله ارزش‌های انسانی از نگاه اسلام">
 
                         <div class="premium-card-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1606787366850-de6330128bfc?auto=format&fit=crop&w=900&q=80"
                                 alt="کتاب و ارزش‌های انسانی"
-                                loading="lazy">
+                                loading="lazy"
+                                decoding="async">
 
                         </div>
 
@@ -1266,14 +1370,16 @@
 
                 <article class="premium-card">
 
-                    <a href="article3.html">
+                    <a href="article3.html"
+                        aria-label="خواندن مقاله تمدن‌ها چگونه شکل گرفتند">
 
                         <div class="premium-card-image">
 
                             <img
                                 src="https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=900&q=80"
                                 alt="معماری و تمدن اسلامی"
-                                loading="lazy">
+                                loading="lazy"
+                                decoding="async">
 
                         </div>
 

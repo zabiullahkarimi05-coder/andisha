@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <meta name="description"
+          content="موضوعات و دسته‌بندی‌های مجله اندیشه؛ فلسفه، اسلام، علوم، تاریخ، جامعه، تکنولوژی، ادبیات و دیگر حوزه‌های دانش.">
+
+    <title>موضوعات | ANDISHA</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+
+        /* ========================================
+           CATEGORIES PAGE
+        ======================================== */
+
+        .categories-page {
+            width: min(1200px, 92%);
+            margin: 80px auto 120px;
+        }
+
+        .categories-intro {
+            max-width: 760px;
+            margin-bottom: 55px;
+        }
+
+        .categories-intro span {
+            font-family: Inter, sans-serif;
+            color: var(--gold);
+            font-size: 12px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .categories-intro h1 {
+            font-size: clamp(36px, 5vw, 58px);
+            line-height: 1.4;
+            margin: 10px 0 18px;
+        }
+
+        .categories-intro p {
+            color: var(--gray);
+            font-size: 16px;
+            max-width: 700px;
+        }
+
+        .categories-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 20px;
+        }
+
+        .category-card {
+            display: block;
+            position: relative;
+
+            background: var(--white);
+            border: 1px solid var(--border);
+
+            padding: 30px;
+
+            min-height: 190px;
+
+            text-decoration: none;
+            color: var(--black);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease,
+                border-color 0.3s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-7px);
+            border-color: var(--gold);
+
+            box-shadow:
+                0 18px 45px rgba(0,0,0,0.08);
+        }
+
+        .category-number {
+            font-family: Inter, sans-serif;
+            font-size: 13px;
+            color: var(--gold);
+            font-weight: 800;
+            letter-spacing: 2px;
+        }
+
+        .category-card h2 {
+            font-size: 22px;
+            margin: 20px 0 10px;
+        }
+
+        .category-card p {
+            color: var(--gray);
+            font-size: 13px;
+            line-height: 1.9;
+        }
+
+        .category-arrow {
+            position: absolute;
+            left: 25px;
+            bottom: 25px;
+
+            font-family: Inter, sans-serif;
+            color: var(--gold);
+            font-size: 18px;
+
+            transition: transform 0.3s ease;
+        }
+
+        .category-card:hover .category-arrow {
+            transform: translateX(-6px);
+        }
+
+
+        /* ========================================
+           DARK MODE
+        ======================================== */
+
+        body.dark-mode .categories-intro h1 {
+            color: #eee;
+        }
+
+        body.dark-mode .category-card {
+            background: #1b1b1b;
+            border-color: #333;
+            color: #eee;
+        }
+
+        body.dark-mode .category-card:hover {
+            border-color: var(--gold);
+        }
+
+        body.dark-mode .category-card p {
+            color: #aaa;
+        }
+
+
+        /* ========================================
+           MOBILE
+        ======================================== */
+
+        @media (max-width: 900px) {
+
+            .categories-grid {
+                grid-template-columns: repeat(2, 1fr);
+            }
+
+        }
+
+        @media (max-width: 600px) {
+
+            .categories-page {
+                margin-top: 55px;
+            }
+
+            .categories-intro {
+                margin-bottom: 35px;
+            }
+
+            .categories-intro h1 {
+                font-size: 36px;
+            }
+
+            .categories-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .category-card {
+                min-height: 170px;
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body>
+
+
+<header>
+
+    <div class="top-bar">
+
+        <div class="logo">
+            ANDISHA
+        </div>
+
+
+        <nav>
+
+            <a href="index.html">
+                خانه
+            </a>
+
+            <a href="categories.html">
+                موضوعات
+            </a>
+
+            <a href="index.html#articles">
+                تازه‌ترین‌ها
+            </a>
+
+            <a href="index.html#articles">
+                پربازدیدترین‌ها
+            </a>
+
+            <a href="about.html">
+                درباره اندیشه
+            </a>
+
+        </nav>
+
+
+        <div class="language">
+            FA
+        </div>
+
+    </div>
+
+</header>
+
+
+
+<main class="categories-page">
+
+
+    <section class="categories-intro">
+
+        <span>
+            EXPLORE ANDISHA
+        </span>
+
+        <h1>
+            موضوعات
+        </h1>
+
+        <p>
+            اندیشه تلاش می‌کند درباره جهان، انسان،
+            دانش، جامعه و زندگی از زاویه‌های مختلف
+            فکر و گفت‌وگو کند. موضوع مورد علاقه خود
+            را انتخاب کنید.
+        </p>
+
+    </section>
+
+
+
+    <section class="categories-grid">
+
+
+        <!-- 01 -->
+
+        <a href="categories.html#philosophy"
+           class="category-card"
+           id="philosophy">
+
+            <div class="category-number">
+                01
+            </div>
+
+            <h2>
+                فلسفه و اندیشه
+            </h2>
+
+            <p>
+                فلسفه، تفکر، حقیقت، آزادی، معنا،
+                هستی و پرسش‌های بنیادین انسان.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 02 -->
+
+        <a href="categories.html#islam"
+           class="category-card"
+           id="islam">
+
+            <div class="category-number">
+                02
+            </div>
+
+            <h2>
+                اسلام و ادیان
+            </h2>
+
+            <p>
+                قرآن، اندیشه اسلامی، اخلاق،
+                تاریخ ادیان و گفت‌وگوی دینی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 03 -->
+
+        <a href="categories.html#social-science"
+           class="category-card"
+           id="social-science">
+
+            <div class="category-number">
+                03
+            </div>
+
+            <h2>
+                علوم اجتماعی
+            </h2>
+
+            <p>
+                جامعه، رفتار اجتماعی، نهادها،
+                روابط انسانی و ساختارهای اجتماعی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 04 -->
+
+        <a href="categories.html#psychology"
+           class="category-card"
+           id="psychology">
+
+            <div class="category-number">
+                04
+            </div>
+
+            <h2>
+                روان‌شناسی
+            </h2>
+
+            <p>
+                ذهن، احساسات، شخصیت، رفتار،
+                یادگیری و رشد فردی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 05 -->
+
+        <a href="categories.html#culture"
+           class="category-card"
+           id="culture">
+
+            <div class="category-number">
+                05
+            </div>
+
+            <h2>
+                جامعه و فرهنگ
+            </h2>
+
+            <p>
+                فرهنگ، سنت‌ها، سبک زندگی،
+                هویت و تحولات اجتماعی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 06 -->
+
+        <a href="categories.html#history"
+           class="category-card"
+           id="history">
+
+            <div class="category-number">
+                06
+            </div>
+
+            <h2>
+                تاریخ و تمدن
+            </h2>
+
+            <p>
+                تمدن‌ها، رویدادهای تاریخی،
+                شخصیت‌ها و گذشته ملت‌ها.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 07 -->
+
+        <a href="categories.html#politics"
+           class="category-card"
+           id="politics">
+
+            <div class="category-number">
+                07
+            </div>
+
+            <h2>
+                سیاست و حکومت
+            </h2>
+
+            <p>
+                دولت، سیاست، قدرت، روابط بین‌الملل
+                و نظام‌های سیاسی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 08 -->
+
+        <a href="categories.html#economy"
+           class="category-card"
+           id="economy">
+
+            <div class="category-number">
+                08
+            </div>
+
+            <h2>
+                اقتصاد و کسب‌وکار
+            </h2>
+
+            <p>
+                اقتصاد، بازار، کارآفرینی،
+                سرمایه‌گذاری و کسب‌وکار.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 09 -->
+
+        <a href="categories.html#law"
+           class="category-card"
+           id="law">
+
+            <div class="category-number">
+                09
+            </div>
+
+            <h2>
+                حقوق و عدالت
+            </h2>
+
+            <p>
+                حقوق، عدالت، قانون، آزادی‌های
+                مدنی و مسئولیت اجتماعی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 10 -->
+
+        <a href="categories.html#science"
+           class="category-card"
+           id="science">
+
+            <div class="category-number">
+                10
+            </div>
+
+            <h2>
+                علم و دانش
+            </h2>
+
+            <p>
+                علوم طبیعی، فیزیک، شیمی،
+                زیست‌شناسی و کشفیات علمی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 11 -->
+
+        <a href="categories.html#health"
+           class="category-card"
+           id="health">
+
+            <div class="category-number">
+                11
+            </div>
+
+            <h2>
+                پزشکی و سلامت
+            </h2>
+
+            <p>
+                پزشکی، سلامت عمومی، تغذیه،
+                بدن انسان و پیشگیری.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 12 -->
+
+        <a href="categories.html#technology"
+           class="category-card"
+           id="technology">
+
+            <div class="category-number">
+                12
+            </div>
+
+            <h2>
+                تکنولوژی و آینده
+            </h2>
+
+            <p>
+                هوش مصنوعی، کامپیوتر، اینترنت،
+                فناوری و آینده بشر.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 13 -->
+
+        <a href="categories.html#education"
+           class="category-card"
+           id="education">
+
+            <div class="category-number">
+                13
+            </div>
+
+            <h2>
+                آموزش و دانشگاه
+            </h2>
+
+            <p>
+                آموزش، دانشگاه، یادگیری،
+                بورس‌ها و مسیرهای علمی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 14 -->
+
+        <a href="categories.html#literature"
+           class="category-card"
+           id="literature">
+
+            <div class="category-number">
+                14
+            </div>
+
+            <h2>
+                ادبیات و شعر
+            </h2>
+
+            <p>
+                شعر، داستان، نویسندگی،
+                شاعران و ادبیات فارسی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 15 -->
+
+        <a href="categories.html#art"
+           class="category-card"
+           id="art">
+
+            <div class="category-number">
+                15
+            </div>
+
+            <h2>
+                هنر و سینما
+            </h2>
+
+            <p>
+                هنر، سینما، موسیقی، نقاشی،
+                عکاسی و آثار هنری.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 16 -->
+
+        <a href="categories.html#language"
+           class="category-card"
+           id="language">
+
+            <div class="category-number">
+                16
+            </div>
+
+            <h2>
+                زبان و زبان‌شناسی
+            </h2>
+
+            <p>
+                زبان‌ها، ادبیات زبانی،
+                دستور زبان و ارتباط انسانی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 17 -->
+
+        <a href="categories.html#media"
+           class="category-card"
+           id="media">
+
+            <div class="category-number">
+                17
+            </div>
+
+            <h2>
+                رسانه و ارتباطات
+            </h2>
+
+            <p>
+                رسانه، روزنامه‌نگاری، شبکه‌های
+                اجتماعی و ارتباطات.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 18 -->
+
+        <a href="categories.html#environment"
+           class="category-card"
+           id="environment">
+
+            <div class="category-number">
+                18
+            </div>
+
+            <h2>
+                محیط‌زیست و طبیعت
+            </h2>
+
+            <p>
+                طبیعت، آب‌وهوا، تغییرات اقلیمی،
+                حیوانات و منابع طبیعی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 19 -->
+
+        <a href="categories.html#geography"
+           class="category-card"
+           id="geography">
+
+            <div class="category-number">
+                19
+            </div>
+
+            <h2>
+                جغرافیا و جهان
+            </h2>
+
+            <p>
+                کشورها، ملت‌ها، جغرافیا،
+                جمعیت و جهان معاصر.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 20 -->
+
+        <a href="categories.html#afghanistan"
+           class="category-card"
+           id="afghanistan">
+
+            <div class="category-number">
+                20
+            </div>
+
+            <h2>
+                افغانستان
+            </h2>
+
+            <p>
+                تاریخ، فرهنگ، جامعه، اقتصاد،
+                دانش و آینده افغانستان.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 21 -->
+
+        <a href="categories.html#family"
+           class="category-card"
+           id="family">
+
+            <div class="category-number">
+                21
+            </div>
+
+            <h2>
+                زنان و خانواده
+            </h2>
+
+            <p>
+                خانواده، تربیت، روابط انسانی،
+                زنان و مسائل خانوادگی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 22 -->
+
+        <a href="categories.html#ethics"
+           class="category-card"
+           id="ethics">
+
+            <div class="category-number">
+                22
+            </div>
+
+            <h2>
+                اخلاق و ارزش‌های انسانی
+            </h2>
+
+            <p>
+                اخلاق، کرامت انسان، مسئولیت،
+                محبت، عدالت و ارزش‌ها.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 23 -->
+
+        <a href="categories.html#review"
+           class="category-card"
+           id="review">
+
+            <div class="category-number">
+                23
+            </div>
+
+            <h2>
+                نقد و بررسی
+            </h2>
+
+            <p>
+                نقد کتاب، فیلم، نظریه‌ها،
+                اندیشه‌ها و آثار مختلف.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 24 -->
+
+        <a href="categories.html#books"
+           class="category-card"
+           id="books">
+
+            <div class="category-number">
+                24
+            </div>
+
+            <h2>
+                کتاب و معرفی آثار
+            </h2>
+
+            <p>
+                معرفی کتاب‌ها، نویسندگان،
+                آثار مهم و مطالعات پیشنهادی.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+
+        <!-- 25 -->
+
+        <a href="categories.html#opinions"
+           class="category-card"
+           id="opinions">
+
+            <div class="category-number">
+                25
+            </div>
+
+            <h2>
+                یادداشت و دیدگاه
+            </h2>
+
+            <p>
+                یادداشت‌های تحلیلی، دیدگاه‌ها،
+                تجربه‌ها و مسائل روز.
+            </p>
+
+            <div class="category-arrow">
+                ←
+            </div>
+
+        </a>
+
+
+    </section>
+
+</main>
+
+
+
+<footer>
+
+    <div class="footer-logo">
+        ANDISHA
+    </div>
+
+    <p>
+        مجله‌ای برای فکر کردن
+    </p>
+
+
+    <div class="footer-links">
+
+        <a href="about.html">
+            درباره ما
+        </a>
+
+        <a href="contact.html">
+            تماس
+        </a>
+
+        <a href="privacy.html">
+            حریم خصوصی
+        </a>
+
+    </div>
+
+
+    <small>
+        © 2026 ANDISHA — All Rights Reserved
+    </small>
+
+</footer>
+
+
+
+<script src="script.js"></script>
+
+</body>
+
+</html>

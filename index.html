@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fa" dir="rtl">
 
 <head>
@@ -107,6 +107,178 @@
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="article-style.css">
 
+/* =====================================================
+   ANDISHA PREMIUM UI ENHANCEMENTS
+   ===================================================== */
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 90px;
+}
+
+::selection {
+    background: rgba(199, 164, 91, 0.28);
+    color: var(--premium-green, #0b3d32);
+}
+
+:focus-visible {
+    outline: 2px solid var(--premium-gold, #c7a45b);
+    outline-offset: 4px;
+    border-radius: 6px;
+}
+
+/* Scroll progress */
+#andisha-scroll-progress {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 0;
+    height: 3px;
+    background: linear-gradient(
+        90deg,
+        #c7a45b,
+        #e3c982,
+        #c7a45b
+    );
+    z-index: 99999;
+    transition: width 0.08s linear;
+}
+
+/* Back to top */
+#andisha-back-top {
+    position: fixed;
+    right: 24px;
+    bottom: 24px;
+    width: 46px;
+    height: 46px;
+    border: 1px solid rgba(199, 164, 91, 0.35);
+    border-radius: 50%;
+    background: rgba(11, 61, 50, 0.94);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    cursor: pointer;
+    z-index: 9998;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(15px);
+    transition:
+        opacity 0.25s ease,
+        visibility 0.25s ease,
+        transform 0.25s ease,
+        box-shadow 0.25s ease;
+    box-shadow: 0 10px 30px rgba(0,0,0,.18);
+}
+
+#andisha-back-top.show {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+#andisha-back-top:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 35px rgba(0,0,0,.25);
+}
+
+/* Premium card movement */
+.premium-card,
+.premium-featured,
+.premium-category,
+.premium-quran-box,
+.premium-cta {
+    transition:
+        transform 0.3s ease,
+        box-shadow 0.3s ease,
+        border-color 0.3s ease;
+}
+
+.premium-card:hover,
+.premium-category:hover {
+    transform: translateY(-6px);
+}
+
+/* Reveal animation */
+.andisha-reveal {
+    opacity: 0;
+    transform: translateY(22px);
+    transition:
+        opacity 0.65s ease,
+        transform 0.65s ease;
+}
+
+.andisha-reveal.is-visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Mobile menu */
+@media (max-width: 900px) {
+
+    .premium-nav.mobile-open {
+        display: flex !important;
+        position: absolute;
+        top: calc(100% + 10px);
+        right: 12px;
+        left: 12px;
+        flex-direction: column;
+        align-items: stretch;
+        gap: 4px;
+        padding: 14px;
+        border: 1px solid rgba(199,164,91,.20);
+        border-radius: 18px;
+        background: rgba(255,253,248,.97);
+        backdrop-filter: blur(18px);
+        -webkit-backdrop-filter: blur(18px);
+        box-shadow: 0 20px 50px rgba(0,0,0,.14);
+        z-index: 9990;
+    }
+
+    .premium-nav.mobile-open a {
+        display: block;
+        padding: 13px 15px;
+        border-radius: 10px;
+    }
+
+    .premium-nav.mobile-open a:hover {
+        background: rgba(199,164,91,.10);
+    }
+
+    body.dark-mode .premium-nav.mobile-open {
+        background: rgba(18, 28, 25, .97);
+        border-color: rgba(199,164,91,.18);
+    }
+
+    #andisha-back-top {
+        right: 16px;
+        bottom: 16px;
+        width: 42px;
+        height: 42px;
+    }
+}
+
+/* Accessibility */
+@media (prefers-reduced-motion: reduce) {
+
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+
+    .andisha-reveal {
+        opacity: 1;
+        transform: none;
+    }
+}
     <style>
 
         /* =====================================================
@@ -1079,25 +1251,7 @@
             </nav>
 
 
-            <div class="premium-actions">
-
-                <button
-                    type="button"
-                    class="premium-theme"
-                    onclick="toggleDarkMode()"
-                    aria-label="تغییر حالت تاریک">
-                    ◐
-                </button>
-
-                <button
-                    type="button"
-                    class="premium-mobile"
-                    onclick="toggleMobileMenu()"
-                    aria-label="باز کردن منوی موبایل">
-                    ☰
-                </button>
-
-            </div>
+ <div class="premium-actions">   <a href="login.html" class="premium-account" aria-label="ورود به حساب کاربری">  ورود  </a>   <a href="register.html" class="premium-register" aria-label="ثبت نام">  عضویت  </a>   <button type="button" class="premium-theme" onclick="toggleDarkMode()" aria-label="تغییر حالت تاریک">  ◐  </button>   <button type="button" class="premium-mobile" onclick="toggleMobileMenu()" aria-label="باز کردن منوی موبایل">  ☰  </button>   </div>
 
         </div>
 

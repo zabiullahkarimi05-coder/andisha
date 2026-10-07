@@ -1,0 +1,924 @@
+```html
+<!DOCTYPE html>
+<html lang="fa" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>ورود به حساب | اندیشه</title>
+
+    <meta name="description"
+          content="ورود به حساب کاربری مجله اندیشه.">
+
+    <link rel="stylesheet" href="style.css">
+
+    <style>
+        :root {
+            --lux-green: #082f27;
+            --lux-green-2: #0b4639;
+            --lux-gold: #c7a45b;
+            --lux-gold-light: #e4c982;
+            --lux-cream: #f7f3ea;
+            --lux-text: #17251f;
+            --lux-muted: #718078;
+            --lux-border: rgba(199,164,91,.25);
+        }
+
+        * {
+            box-sizing: border-box;
+        }
+
+        html,
+        body {
+            margin: 0;
+            min-height: 100%;
+        }
+
+        body {
+            font-family: inherit;
+            background:
+                radial-gradient(circle at 15% 20%, rgba(199,164,91,.13), transparent 28%),
+                radial-gradient(circle at 85% 80%, rgba(11,70,57,.15), transparent 30%),
+                #f3f0e8;
+            color: var(--lux-text);
+        }
+
+        .lux-login-page {
+            min-height: 100vh;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 40px 20px;
+        }
+
+        /* Ambient lights */
+
+        .lux-light {
+            position: absolute;
+            width: 420px;
+            height: 420px;
+            border-radius: 50%;
+            filter: blur(70px);
+            opacity: .35;
+            pointer-events: none;
+        }
+
+        .lux-light.one {
+            top: -180px;
+            right: -120px;
+            background: rgba(199,164,91,.30);
+            animation: luxFloatOne 9s ease-in-out infinite;
+        }
+
+        .lux-light.two {
+            bottom: -200px;
+            left: -140px;
+            background: rgba(11,70,57,.25);
+            animation: luxFloatTwo 11s ease-in-out infinite;
+        }
+
+        @keyframes luxFloatOne {
+            0%,100% { transform: translate3d(0,0,0); }
+            50% { transform: translate3d(-35px,25px,0); }
+        }
+
+        @keyframes luxFloatTwo {
+            0%,100% { transform: translate3d(0,0,0); }
+            50% { transform: translate3d(35px,-30px,0); }
+        }
+
+        /* Grid */
+
+        .lux-grid {
+            position: absolute;
+            inset: 0;
+            opacity: .20;
+            pointer-events: none;
+            background-image:
+                linear-gradient(rgba(11,61,50,.08) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(11,61,50,.08) 1px, transparent 1px);
+            background-size: 55px 55px;
+            mask-image: linear-gradient(
+                to bottom,
+                transparent,
+                black 20%,
+                black 80%,
+                transparent
+            );
+        }
+
+        /* Decorative ring */
+
+        .lux-ring {
+            position: absolute;
+            width: 330px;
+            height: 330px;
+            border: 1px solid rgba(199,164,91,.20);
+            border-radius: 50%;
+            left: -150px;
+            top: 50%;
+            transform: translateY(-50%);
+            animation: luxRotate 22s linear infinite;
+            pointer-events: none;
+        }
+
+        .lux-ring::before,
+        .lux-ring::after {
+            content: "";
+            position: absolute;
+            border-radius: 50%;
+            border: 1px solid rgba(199,164,91,.14);
+        }
+
+        .lux-ring::before {
+            inset: 25px;
+        }
+
+        .lux-ring::after {
+            inset: 55px;
+        }
+
+        @keyframes luxRotate {
+            from { transform: translateY(-50%) rotate(0deg); }
+            to { transform: translateY(-50%) rotate(360deg); }
+        }
+
+        /* Main frame */
+
+        .lux-frame {
+            width: min(1080px, 100%);
+            min-height: 650px;
+            display: grid;
+            grid-template-columns: .9fr 1.1fr;
+            position: relative;
+            z-index: 2;
+            overflow: hidden;
+            border: 1px solid rgba(255,255,255,.55);
+            border-radius: 32px;
+            background: rgba(255,255,255,.67);
+            backdrop-filter: blur(28px);
+            -webkit-backdrop-filter: blur(28px);
+            box-shadow:
+                0 35px 90px rgba(8,47,39,.16),
+                0 10px 35px rgba(8,47,39,.08);
+            animation: luxAppear .8s ease both;
+        }
+
+        @keyframes luxAppear {
+            from {
+                opacity: 0;
+                transform: translateY(25px) scale(.98);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+        /* Brand panel */
+
+        .lux-brand {
+            position: relative;
+            overflow: hidden;
+            min-height: 650px;
+            padding: 54px 46px;
+            color: #fff;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background:
+                radial-gradient(circle at 80% 15%, rgba(199,164,91,.22), transparent 28%),
+                linear-gradient(145deg, #092f27, #0b4034 55%, #06251f);
+        }
+
+        .lux-brand::before {
+            content: "";
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            border: 1px solid rgba(199,164,91,.18);
+            border-radius: 50%;
+            left: -130px;
+            bottom: -110px;
+        }
+
+        .lux-brand::after {
+            content: "";
+            position: absolute;
+            width: 1px;
+            height: 70%;
+            right: 32px;
+            top: 15%;
+            background: linear-gradient(
+                transparent,
+                rgba(199,164,91,.5),
+                transparent
+            );
+        }
+
+        .lux-brand-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .lux-logo {
+            display: inline-flex;
+            align-items: center;
+            gap: 13px;
+            color: #fff;
+            font-size: 22px;
+            font-weight: 900;
+            letter-spacing: 4px;
+        }
+
+        .lux-logo-mark {
+            width: 39px;
+            height: 39px;
+            border: 1px solid rgba(199,164,91,.75);
+            border-radius: 50%;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--lux-gold-light);
+            font-size: 14px;
+        }
+
+        .lux-kicker {
+            margin-top: 90px;
+            margin-bottom: 16px;
+            color: var(--lux-gold-light);
+            font-size: 11px;
+            font-weight: 800;
+            letter-spacing: 3px;
+        }
+
+        .lux-brand-title {
+            margin: 0;
+            max-width: 430px;
+            font-size: clamp(32px, 4vw, 50px);
+            line-height: 1.25;
+            font-weight: 900;
+        }
+
+        .lux-brand-text {
+            max-width: 420px;
+            margin: 24px 0 0;
+            color: rgba(255,255,255,.72);
+            line-height: 2;
+            font-size: 15px;
+        }
+
+        .lux-signature {
+            position: relative;
+            z-index: 2;
+            color: rgba(255,255,255,.48);
+            font-size: 12px;
+            letter-spacing: 1px;
+        }
+
+        .lux-signature span {
+            color: var(--lux-gold-light);
+        }
+
+        /* Form panel */
+
+        .lux-form {
+            padding: 58px 64px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            background: rgba(255,255,255,.58);
+        }
+
+        .lux-form-top {
+            margin-bottom: 38px;
+        }
+
+        .lux-form-kicker {
+            color: var(--lux-gold);
+            font-size: 11px;
+            font-weight: 900;
+            letter-spacing: 2px;
+            margin-bottom: 10px;
+        }
+
+        .lux-heading {
+            margin: 0;
+            color: var(--lux-green);
+            font-size: clamp(30px, 4vw, 42px);
+            line-height: 1.25;
+            font-weight: 900;
+        }
+
+        .lux-subheading {
+            margin: 12px 0 0;
+            color: var(--lux-muted);
+            line-height: 1.9;
+            font-size: 14px;
+        }
+
+        .lux-form-group {
+            margin-bottom: 19px;
+        }
+
+        .lux-label {
+            display: block;
+            margin-bottom: 9px;
+            color: var(--lux-green);
+            font-size: 13px;
+            font-weight: 800;
+        }
+
+        .lux-input-wrap {
+            position: relative;
+        }
+
+        .lux-input {
+            width: 100%;
+            height: 56px;
+            padding: 0 18px;
+            border: 1px solid rgba(11,61,50,.13);
+            border-radius: 15px;
+            outline: none;
+            background: rgba(255,255,255,.76);
+            color: var(--lux-text);
+            font-family: inherit;
+            font-size: 14px;
+            transition:
+                border-color .25s ease,
+                box-shadow .25s ease,
+                transform .25s ease;
+        }
+
+        .lux-input::placeholder {
+            color: #a1aaa5;
+        }
+
+        .lux-input:hover {
+            border-color: rgba(199,164,91,.38);
+        }
+
+        .lux-input:focus {
+            border-color: var(--lux-gold);
+            box-shadow:
+                0 0 0 4px rgba(199,164,91,.10),
+                0 10px 25px rgba(8,47,39,.05);
+            transform: translateY(-1px);
+        }
+
+        /* Password eye */
+
+        .lux-password-toggle {
+            position: absolute;
+            left: 13px;
+            top: 50%;
+            transform: translateY(-50%);
+            border: 0;
+            background: transparent;
+            color: #84918b;
+            cursor: pointer;
+            width: 36px;
+            height: 36px;
+            border-radius: 10px;
+            transition: .2s ease;
+        }
+
+        .lux-password-toggle:hover {
+            color: var(--lux-green);
+            background: rgba(11,61,50,.06);
+        }
+
+        .lux-submit {
+            position: relative;
+            width: 100%;
+            height: 57px;
+            margin-top: 8px;
+            border: 1px solid var(--lux-green);
+            border-radius: 15px;
+            overflow: hidden;
+            cursor: pointer;
+            color: #fff;
+            background: linear-gradient(
+                135deg,
+                #082f27,
+                #0c4a3b
+            );
+            font-family: inherit;
+            font-size: 15px;
+            font-weight: 900;
+            box-shadow:
+                0 15px 30px rgba(8,47,39,.16);
+            transition:
+                transform .25s ease,
+                box-shadow .25s ease;
+        }
+
+        .lux-submit::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 80px;
+            right: -100px;
+            background: linear-gradient(
+                90deg,
+                transparent,
+                rgba(255,255,255,.30),
+                transparent
+            );
+            transform: skewX(-18deg);
+            animation: luxShine 3.5s ease-in-out infinite;
+        }
+
+        @keyframes luxShine {
+            0%, 45% {
+                right: -110px;
+            }
+            75%,100% {
+                right: 120%;
+            }
+        }
+
+        .lux-submit:hover {
+            transform: translateY(-2px);
+            box-shadow:
+                0 18px 38px rgba(8,47,39,.23);
+        }
+
+        .lux-submit:active {
+            transform: translateY(0);
+        }
+
+        .lux-message {
+            min-height: 24px;
+            margin-top: 14px;
+            text-align: center;
+            font-size: 13px;
+            font-weight: 700;
+        }
+
+        .lux-message.error {
+            color: #a33b3b;
+        }
+
+        .lux-message.success {
+            color: #21745d;
+        }
+
+        .lux-divider {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin: 27px 0 20px;
+            color: #a1aaa5;
+            font-size: 11px;
+        }
+
+        .lux-divider::before,
+        .lux-divider::after {
+            content: "";
+            height: 1px;
+            flex: 1;
+            background: rgba(11,61,50,.10);
+        }
+
+        .lux-register {
+            text-align: center;
+            color: var(--lux-muted);
+            font-size: 13px;
+        }
+
+        .lux-register a {
+            color: var(--lux-green);
+            font-weight: 900;
+            text-decoration: none;
+            border-bottom: 1px solid rgba(199,164,91,.55);
+            padding-bottom: 2px;
+        }
+
+        .lux-register a:hover {
+            color: var(--lux-gold);
+        }
+
+        .lux-back {
+            display: block;
+            margin-top: 18px;
+            text-align: center;
+            color: #8a948f;
+            text-decoration: none;
+            font-size: 12px;
+            transition: .2s ease;
+        }
+
+        .lux-back:hover {
+            color: var(--lux-green);
+        }
+
+        /* Dark mode */
+
+        body.dark-mode .lux-login-page {
+            background:
+                radial-gradient(circle at 15% 20%, rgba(199,164,91,.10), transparent 28%),
+                #071c17;
+        }
+
+        body.dark-mode .lux-frame {
+            background: rgba(10,31,26,.76);
+            border-color: rgba(255,255,255,.08);
+            box-shadow: 0 35px 90px rgba(0,0,0,.35);
+        }
+
+        body.dark-mode .lux-form {
+            background: rgba(8,30,25,.65);
+        }
+
+        body.dark-mode .lux-heading,
+        body.dark-mode .lux-label {
+            color: #f4efe4;
+        }
+
+        body.dark-mode .lux-subheading,
+        body.dark-mode .lux-register {
+            color: #9ba8a2;
+        }
+
+        body.dark-mode .lux-input {
+            background: rgba(255,255,255,.055);
+            border-color: rgba(255,255,255,.10);
+            color: #f5f1e8;
+        }
+
+        body.dark-mode .lux-input::placeholder {
+            color: #77837d;
+        }
+
+        body.dark-mode .lux-input:focus {
+            border-color: var(--lux-gold);
+        }
+
+        body.dark-mode .lux-divider::before,
+        body.dark-mode .lux-divider::after {
+            background: rgba(255,255,255,.09);
+        }
+
+        body.dark-mode .lux-back {
+            color: #78847e;
+        }
+
+        /* Responsive */
+
+        @media (max-width: 900px) {
+            .lux-frame {
+                grid-template-columns: 1fr;
+                max-width: 620px;
+            }
+
+            .lux-brand {
+                min-height: auto;
+                padding: 38px 34px;
+            }
+
+            .lux-kicker {
+                margin-top: 50px;
+            }
+
+            .lux-brand-title {
+                font-size: 35px;
+            }
+
+            .lux-form {
+                padding: 45px 34px;
+            }
+
+            .lux-signature {
+                margin-top: 45px;
+            }
+        }
+
+        @media (max-width: 520px) {
+            .lux-login-page {
+                padding: 18px 12px;
+            }
+
+            .lux-frame {
+                border-radius: 23px;
+            }
+
+            .lux-brand {
+                padding: 30px 24px;
+            }
+
+            .lux-form {
+                padding: 34px 22px;
+            }
+
+            .lux-brand-title {
+                font-size: 29px;
+            }
+
+            .lux-brand-text {
+                font-size: 13px;
+            }
+
+            .lux-heading {
+                font-size: 30px;
+            }
+
+            .lux-ring {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="lux-login-page">
+
+    <div class="lux-light one"></div>
+    <div class="lux-light two"></div>
+    <div class="lux-grid"></div>
+    <div class="lux-ring"></div>
+
+    <main class="lux-frame">
+
+        <!-- Brand -->
+        <section class="lux-brand">
+
+            <div class="lux-brand-content">
+
+                <div class="lux-logo">
+                    <span class="lux-logo-mark">A</span>
+                    ANDISHA
+                </div>
+
+                <div class="lux-kicker">
+                    ANDISHA MEMBERSHIP
+                </div>
+
+                <h1 class="lux-brand-title">
+                    دوباره به دنیای اندیشه برگردید
+                </h1>
+
+                <p class="lux-brand-text">
+                    وارد حساب کاربری خود شوید و تجربه شخصی‌تر،
+                    منظم‌تر و عمیق‌تری از مطالعه در مجله اندیشه داشته باشید.
+                </p>
+
+            </div>
+
+            <div class="lux-signature">
+                فکر کنید، بخوانید، <span>اندیشه کنید.</span>
+            </div>
+
+        </section>
+
+        <!-- Login -->
+        <section class="lux-form">
+
+            <div class="lux-form-top">
+
+                <div class="lux-form-kicker">
+                    WELCOME BACK
+                </div>
+
+                <h2 class="lux-heading">
+                    ورود به حساب
+                </h2>
+
+                <p class="lux-subheading">
+                    اطلاعات حساب خود را وارد کنید تا وارد فضای شخصی خود شوید.
+                </p>
+
+            </div>
+
+            <form id="loginForm" novalidate>
+
+                <div class="lux-form-group">
+
+                    <label class="lux-label" for="email">
+                        ایمیل
+                    </label>
+
+                    <input
+                        class="lux-input"
+                        id="email"
+                        name="email"
+                        type="email"
+                        autocomplete="email"
+                        placeholder="example@email.com"
+                        required
+                    >
+
+                </div>
+
+                <div class="lux-form-group">
+
+                    <label class="lux-label" for="password">
+                        رمز عبور
+                    </label>
+
+                    <div class="lux-input-wrap">
+
+                        <input
+                            class="lux-input"
+                            id="password"
+                            name="password"
+                            type="password"
+                            autocomplete="current-password"
+                            placeholder="رمز عبور خود را وارد کنید"
+                            required
+                        >
+
+                        <button
+                            type="button"
+                            class="lux-password-toggle"
+                            id="passwordToggle"
+                            aria-label="نمایش رمز عبور"
+                        >
+                            ◉
+                        </button>
+
+                    </div>
+
+                </div>
+
+                <button
+                    type="submit"
+                    class="lux-submit"
+                >
+                    ورود به حساب
+                </button>
+
+                <div
+                    id="loginMessage"
+                    class="lux-message"
+                    aria-live="polite"
+                ></div>
+
+            </form>
+
+            <div class="lux-divider">
+                <span>حساب کاربری ندارید؟</span>
+            </div>
+
+            <div class="lux-register">
+                <a href="register.html">
+                    ایجاد حساب جدید
+                </a>
+            </div>
+
+            <a
+                href="index.html"
+                class="lux-back"
+            >
+                ← بازگشت به مجله اندیشه
+            </a>
+
+        </section>
+
+    </main>
+
+</div>
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const form =
+        document.getElementById("loginForm");
+
+    const emailInput =
+        document.getElementById("email");
+
+    const passwordInput =
+        document.getElementById("password");
+
+    const message =
+        document.getElementById("loginMessage");
+
+    const passwordToggle =
+        document.getElementById("passwordToggle");
+
+
+    /* ================================
+       Password visibility
+       ================================= */
+
+    passwordToggle.addEventListener(
+        "click",
+        function () {
+
+            const isPassword =
+                passwordInput.type === "password";
+
+            passwordInput.type =
+                isPassword ? "text" : "password";
+
+            passwordToggle.textContent =
+                isPassword ? "◌" : "◉";
+
+            passwordToggle.setAttribute(
+                "aria-label",
+                isPassword
+                    ? "پنهان کردن رمز عبور"
+                    : "نمایش رمز عبور"
+            );
+        }
+    );
+
+
+    /* ================================
+       Login
+       ================================= */
+
+    form.addEventListener(
+        "submit",
+        function (event) {
+
+            event.preventDefault();
+
+            message.textContent = "";
+            message.className = "lux-message";
+
+            const email =
+                emailInput.value.trim().toLowerCase();
+
+            const password =
+                passwordInput.value;
+
+            if (!email || !password) {
+
+                message.textContent =
+                    "لطفاً ایمیل و رمز عبور را وارد کنید.";
+
+                message.classList.add("error");
+
+                return;
+            }
+
+
+            const users =
+                JSON.parse(
+                    localStorage.getItem("andisha-users") || "[]"
+                );
+
+
+            const user =
+                users.find(function (item) {
+
+                    return (
+                        String(item.email || "")
+                            .trim()
+                            .toLowerCase() === email
+                        &&
+                        item.password === password
+                    );
+
+                });
+
+
+            if (!user) {
+
+                message.textContent =
+                    "ایمیل یا رمز عبور صحیح نیست.";
+
+                message.classList.add("error");
+
+                passwordInput.value = "";
+
+                return;
+            }
+
+
+            sessionStorage.setItem(
+                "andisha-current-user",
+                JSON.stringify(user)
+            );
+
+
+            message.textContent =
+                "ورود موفق بود؛ در حال انتقال...";
+
+            message.classList.add("success");
+
+
+            setTimeout(function () {
+
+                window.location.href =
+                    "account.html";
+
+            }, 500);
+
+        }
+    );
+
+});
+</script>
+
+</body>
+</html>
+```

@@ -1649,3 +1649,103 @@ body.dark-mode .article-tag {
 
     color: var(--green-950);
 }
+/* =====================================================
+   ANDISHA MEMBERSHIP HEADER
+   Login / Register Buttons
+   ===================================================== */
+
+.premium-actions {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.premium-account,
+.premium-register {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 40px;
+    padding: 0 16px;
+    border-radius: 999px;
+    text-decoration: none;
+    font-family: inherit;
+    font-size: 14px;
+    font-weight: 700;
+    transition: all .25s ease;
+    white-space: nowrap;
+}
+
+.premium-account {
+    color: var(--premium-green, #0b3d32);
+    background: transparent;
+    border: 1px solid rgba(11, 61, 50, .22);
+}
+
+.premium-account:hover {
+    color: #fff;
+    background: var(--premium-green, #0b3d32);
+    border-color: var(--premium-green, #0b3d32);
+    transform: translateY(-1px);
+}
+
+.premium-register {
+    color: #fff;
+    background: var(--premium-green, #0b3d32);
+    border: 1px solid var(--premium-green, #0b3d32);
+    box-shadow: 0 8px 20px rgba(11, 61, 50, .16);
+}
+
+.premium-register:hover {
+    background: var(--premium-gold, #c7a45b);
+    border-color: var(--premium-gold, #c7a45b);
+    color: #fff;
+    transform: translateY(-1px);
+    box-shadow: 0 10px 24px rgba(199, 164, 91, .22);
+}
+
+/* Dark mode */
+
+body.dark-mode .premium-account {
+    color: #f5f1e8;
+    border-color: rgba(255, 255, 255, .2);
+}
+
+body.dark-mode .premium-account:hover {
+    color: #0b3d32;
+    background: #f5f1e8;
+    border-color: #f5f1e8;
+}
+
+body.dark-mode .premium-register {
+    color: #fff;
+    background: #176653;
+    border-color: #176653;
+}
+
+/* Tablet / Mobile */
+
+@media (max-width: 768px) {
+
+    .premium-actions {
+        gap: 7px;
+    }
+
+    .premium-account,
+    .premium-register {
+        min-height: 36px;
+        padding: 0 12px;
+        font-size: 13px;
+    }
+
+}
+
+@media (max-width: 520px) {
+
+    .premium-account,
+    .premium-register {
+        padding: 0 10px;
+        font-size: 12px;
+    }
+
+}
